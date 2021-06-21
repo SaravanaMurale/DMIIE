@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +21,8 @@ import com.pojo.dmiie.R;
 public class AdminDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerAdmin;
+    FragmentManager fragmentManagerAdmin;
+    FragmentTransaction fragmentTransactionAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,19 +54,20 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Intent intent = null;
+        Fragment fragment=null;
+
 
         switch (item.getItemId()) {
             case R.id.nav_message:
-                //intent = new Intent(AdminDrawerActivity.this, ScholFeesStandardSelectionActivity.class);
+                fragment=new AssignSalesPersonFragment();
                 break;
 
             case R.id.nav_chat:
-                //intent = new Intent(AdminDrawerActivity.this, ColgStuFeesActivity.class);
+                fragment=new AdminReportFragment();
                 break;
 
             case R.id.nav_profile:
-                //intent = new Intent(AdminDrawerActivity.this, ProfileActivity.class);
+                fragment=new AdminProfileFragment();
                 break;
 
             case R.id.nav_logout:
@@ -69,8 +75,10 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
                 break;
         }
 
-        if(intent!=null){
-            startActivity(intent);
+        if(fragment!=null){
+            fragmentTransactionAdmin.replace(R.id.fragment_container_admin,fragment);
+            fragmentTransactionAdmin.addToBackStack("fragmentB");
+            fragmentTransactionAdmin.commit();
         }
         drawerAdmin.closeDrawer(GravityCompat.START);
         return true;
