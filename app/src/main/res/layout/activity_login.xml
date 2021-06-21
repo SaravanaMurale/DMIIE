@@ -39,7 +39,9 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_baseline_phone_android_24"
                 android:drawablePadding="@dimen/five_dp"
-                android:hint="@string/user_name" />
+                android:hint="@string/user_name"
+                android:textColorHint="@color/dmiie_yellow"
+                />
         </com.google.android.material.textfield.TextInputLayout>
 (
 
