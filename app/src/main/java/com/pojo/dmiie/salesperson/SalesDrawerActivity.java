@@ -1,4 +1,4 @@
-package com.pojo.dmiie.admin;
+package com.pojo.dmiie.salesperson;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -15,31 +15,31 @@ import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
 import com.pojo.dmiie.R;
 
-public class AdminDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class SalesDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private DrawerLayout drawerAdmin;
+    private DrawerLayout drawerSales;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_drawer);
+        setContentView(R.layout.activity_sales_drawer);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar_sales);
         setSupportActionBar(toolbar);
 
-        drawerAdmin = findViewById(R.id.drawer_layout_admin);
+        drawerSales = findViewById(R.id.drawer_layout_sales);
 
 
         NavigationView navigationView = findViewById(R.id.nav_view_admin);
         navigationView.setNavigationItemSelectedListener(this);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerAdmin, toolbar,
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerSales, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerAdmin.addDrawerListener(toggle);
-        drawerAdmin.openDrawer(GravityCompat.START);
+        drawerSales.addDrawerListener(toggle);
+        drawerSales.openDrawer(GravityCompat.START);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                drawerAdmin.closeDrawer(GravityCompat.START);
+                drawerSales.closeDrawer(GravityCompat.START);
             }
         },1000);
         toggle.syncState();
@@ -52,19 +52,19 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
         Intent intent = null;
 
         switch (item.getItemId()) {
-            case R.id.nav_message:
+            case R.id.nav_message_sales:
                 //intent = new Intent(AdminDrawerActivity.this, ScholFeesStandardSelectionActivity.class);
                 break;
 
-            case R.id.nav_chat:
+            case R.id.nav_chat_sales:
                 //intent = new Intent(AdminDrawerActivity.this, ColgStuFeesActivity.class);
                 break;
 
-            case R.id.nav_profile:
+            case R.id.nav_profile_sales:
                 //intent = new Intent(AdminDrawerActivity.this, ProfileActivity.class);
                 break;
 
-            case R.id.nav_logout:
+            case R.id.nav_logout_sales:
                 clearAllData();
                 break;
         }
@@ -72,23 +72,10 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
         if(intent!=null){
             startActivity(intent);
         }
-        drawerAdmin.closeDrawer(GravityCompat.START);
+        drawerSales.closeDrawer(GravityCompat.START);
         return true;
     }
 
     private void clearAllData() {
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-        if (drawerAdmin.isDrawerOpen(GravityCompat.START)) {
-            drawerAdmin.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-
     }
 }

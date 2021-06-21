@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:id="@+id/drawer_layout_admin"
+    android:id="@+id/drawer_layout_sales"
     tools:openDrawer="start"
-    tools:context=".admin.AdminDrawerActivity">
+    tools:context=".salesperson.SalesDrawerActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbar_sales"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
@@ -24,7 +24,7 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <FrameLayout
-            android:id="@+id/fragment_container"
+            android:id="@+id/fragment_container_sales"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
@@ -35,6 +35,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/drawer_menu_admin"/>
+        app:menu="@menu/drawer_menu_sales"/>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

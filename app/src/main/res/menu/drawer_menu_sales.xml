@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"  >
+
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_message_sales"
+            android:icon="@drawable/ic_baseline_phone_android_24"
+            android:title="Sales DashBoard" />
+        <item
+            android:id="@+id/nav_chat_sales"
+            android:icon="@drawable/ic_baseline_phone_android_24"
+            android:title="Report" />
+        <item
+            android:id="@+id/nav_profile_sales"
+            android:icon="@drawable/ic_baseline_phone_android_24"
+            android:title="Profile" />
+
+        <item
+            android:id="@+id/nav_logout_sales"
+            android:icon="@drawable/ic_baseline_phone_android_24"
+            android:title="Logout" />
+    </group>
+
+</menu>
