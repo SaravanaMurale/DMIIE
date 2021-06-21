@@ -4,22 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".LoginActivity">
 
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/pnd_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/layout_auth"
+        android:layout_marginBottom="@dimen/thirty_dp"
+        />
+
+
+
     <RelativeLayout
+        android:id="@+id/layout_auth"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/login_user_text_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/user_name">
+            android:layout_margin="@dimen/ten_dp"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_user_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_baseline_phone_android_24"
+                android:drawablePadding="@dimen/five_dp"
+                android:hint="@string/user_name" />
         </com.google.android.material.textfield.TextInputLayout>
+(
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/login_password_text_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_user_text_input"
+            android:layout_marginTop="@dimen/five_dp"
+            app:passwordToggleEnabled="true"
+            android:layout_margin="@dimen/ten_dp"
+            app:passwordToggleTint="@color/dmiie_blue"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_password"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_baseline_password_24"
+                android:drawablePadding="@dimen/five_dp"
+                android:gravity="center_vertical"
+                android:hint="@string/password" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_password_text_input"
+            android:layout_margin="@dimen/ten_dp"
+            android:text="@string/login"
+            android:background="@drawable/round_shape"
+            android:textColor="@color/dmiie_yellow"
+            android:textSize="@dimen/fiften_sp"
+            android:textStyle="bold"
+
+            />
+
 
 
     </RelativeLayout>
