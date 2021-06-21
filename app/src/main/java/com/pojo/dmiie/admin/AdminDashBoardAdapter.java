@@ -19,7 +19,6 @@ public class AdminDashBoardAdapter extends RecyclerView.Adapter<AdminDashBoardAd
     Context context;
     List<AdminDashBoardCountDTO> adminDashBoardCountDTOList;
 
-
     public AdminDashBoardAdapter(Context context, List<AdminDashBoardCountDTO> adminDashBoardCountDTOList) {
         this.context = context;
         this.adminDashBoardCountDTOList = adminDashBoardCountDTOList;

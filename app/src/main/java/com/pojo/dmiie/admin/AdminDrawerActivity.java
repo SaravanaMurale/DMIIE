@@ -9,6 +9,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +18,10 @@ import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 import com.pojo.dmiie.R;
+import com.pojo.dmiie.model.AdminDashBoardCountDTO;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdminDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -23,19 +29,33 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
     FragmentManager fragmentManagerAdmin;
     FragmentTransaction fragmentTransactionAdmin;
 
+    RecyclerView recyclerViewAdminDashboard;
+    AdminDashBoardAdapter adminDashBoardAdapter;
+    Toolbar toolbar;
+    
+    List<AdminDashBoardCountDTO> adminDashBoardCountDTOList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_drawer);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         drawerAdmin = findViewById(R.id.drawer_layout_admin);
         fragmentManagerAdmin=getSupportFragmentManager();
         fragmentTransactionAdmin=fragmentManagerAdmin.beginTransaction();
-
-
+        
+        recyclerViewAdminDashboard=(RecyclerView)findViewById(R.id.adminRecyclerView);
+        recyclerViewAdminDashboard.setHasFixedSize(true);
+        recyclerViewAdminDashboard.setLayoutManager(new LinearLayoutManager(AdminDrawerActivity.this));
+        
+        adminDashBoardCountDTOList=new ArrayList<>();
+        
+        adminDashBoardAdapter=new AdminDashBoardAdapter(AdminDrawerActivity.this,adminDashBoardCountDTOList);
+        recyclerViewAdminDashboard.setAdapter(adminDashBoardAdapter);
+        
         NavigationView navigationView = findViewById(R.id.nav_view_admin);
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerAdmin, toolbar,
@@ -47,10 +67,16 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
             public void run() {
                 drawerAdmin.closeDrawer(GravityCompat.START);
             }
-        },1000);
+        },2000);
         toggle.syncState();
 
 
+        
+        getDashBoardCount();
+        
+    }
+
+    private void getDashBoardCount() {
     }
 
     @Override
