@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -33,6 +32,8 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
         setSupportActionBar(toolbar);
 
         drawerAdmin = findViewById(R.id.drawer_layout_admin);
+        fragmentManagerAdmin=getSupportFragmentManager();
+        fragmentTransactionAdmin=fragmentManagerAdmin.beginTransaction();
 
 
         NavigationView navigationView = findViewById(R.id.nav_view_admin);
