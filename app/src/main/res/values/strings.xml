@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DMIIE</string>
+    <string name="user_name">UserName</string>
 </resources>
