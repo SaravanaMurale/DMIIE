@@ -2,16 +2,26 @@ package com.pojo.dmiie.model;
 
 public class AdminDashBoardCountDTO {
 
+    String salesPersonName;
     int taotalcustomer;
     int totalAssigned;
     int followup;
     int closed;
 
-    public AdminDashBoardCountDTO(int taotalcustomer, int totalAssigned, int followup, int closed) {
+    public AdminDashBoardCountDTO(String salesPersonName, int taotalcustomer, int totalAssigned, int followup, int closed) {
+        this.salesPersonName = salesPersonName;
         this.taotalcustomer = taotalcustomer;
         this.totalAssigned = totalAssigned;
         this.followup = followup;
         this.closed = closed;
+    }
+
+    public String getSalesPersonName() {
+        return salesPersonName;
+    }
+
+    public void setSalesPersonName(String salesPersonName) {
+        this.salesPersonName = salesPersonName;
     }
 
     public int getTaotalcustomer() {

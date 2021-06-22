@@ -41,10 +41,12 @@ public class AdminDashBoardAdapter extends RecyclerView.Adapter<AdminDashBoardAd
     @Override
     public void onBindViewHolder(@NonNull AdminDashBoardViewHolder holder, int position) {
 
-        holder.totalCustomer.setText(adminDashBoardCountDTOList.get(position).getTaotalcustomer());
-        holder.totalAssigned.setText(adminDashBoardCountDTOList.get(position).getTotalAssigned());
-        holder.followUp.setText(adminDashBoardCountDTOList.get(position).getFollowup());
-        holder.closed.setText(adminDashBoardCountDTOList.get(position).getClosed());
+
+        holder.admin_salesper_name.setText(adminDashBoardCountDTOList.get(position).getSalesPersonName());
+        holder.totalCustomer.setText(""+adminDashBoardCountDTOList.get(position).getTaotalcustomer());
+        holder.totalAssigned.setText(""+adminDashBoardCountDTOList.get(position).getTotalAssigned());
+        holder.followUp.setText(""+adminDashBoardCountDTOList.get(position).getFollowup());
+        holder.closed.setText(""+adminDashBoardCountDTOList.get(position).getClosed());
 
     }
 
@@ -55,11 +57,12 @@ public class AdminDashBoardAdapter extends RecyclerView.Adapter<AdminDashBoardAd
 
     class AdminDashBoardViewHolder extends RecyclerView.ViewHolder {
 
-        TextView totalCustomer,totalAssigned,followUp,closed;
+        TextView admin_salesper_name,totalCustomer,totalAssigned,followUp,closed;
 
         public AdminDashBoardViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            admin_salesper_name=(TextView)itemView.findViewById(R.id.admin_salesper_name);
             totalCustomer=(TextView)itemView.findViewById(R.id.totalCustomerCount);
             totalAssigned=(TextView)itemView.findViewById(R.id.totalAssignedCount);
             followUp=(TextView)itemView.findViewById(R.id.followCount);

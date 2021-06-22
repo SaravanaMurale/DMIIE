@@ -77,6 +77,19 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
     }
 
     private void getDashBoardCount() {
+
+        AdminDashBoardCountDTO adminDashBoardCountDTO=new AdminDashBoardCountDTO("Saravana",50,5,2,6);
+        AdminDashBoardCountDTO adminDashBoardCountDTO1=new AdminDashBoardCountDTO("Murali",5,0,5,2);
+        AdminDashBoardCountDTO adminDashBoardCountDTO2=new AdminDashBoardCountDTO("Suresh",50,5,2,6);
+        AdminDashBoardCountDTO adminDashBoardCountDTO3=new AdminDashBoardCountDTO("Ramesh",50,5,2,6);
+
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO);
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO1);
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO2);
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO3);
+
+        adminDashBoardAdapter.setData(adminDashBoardCountDTOList);
+
     }
 
     @Override

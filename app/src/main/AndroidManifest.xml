@@ -12,7 +12,7 @@
         <!--<activity android:name=".salesperson.SalesDrawerActivity"></activity>-->
         <!--<activity android:name=".admin.AdminDrawerActivity" />-->
         <!-- <activity android:name=".LoginActivity"></activity> -->
-        <activity android:name=".salesperson.SalesDrawerActivity">
+        <activity android:name=".admin.AdminDrawerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
