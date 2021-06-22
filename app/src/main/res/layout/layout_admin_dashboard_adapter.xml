@@ -8,7 +8,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/ten_dp"
+        android:layout_margin="@dimen/five_dp"
         app:cardCornerRadius="@dimen/five_dp"
 
         >
@@ -51,6 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/total_customer"
+                    android:textStyle="bold"
                     android:gravity="center" />
 
                 <TextView
@@ -58,6 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/total_assigned"
+                    android:textStyle="bold"
                     android:gravity="center" />
 
                 <TextView
@@ -65,12 +67,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/followup"
+                    android:textStyle="bold"
                     android:gravity="center" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textStyle="bold"
                     android:text="@string/closed"
                     android:gravity="center" />
 
@@ -90,6 +94,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="50"
+                    android:textColor="@color/green"
+                    android:textStyle="bold"
                     android:gravity="center" />
 
                 <TextView
@@ -98,6 +104,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="5"
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
                     android:gravity="center" />
 
                 <TextView
@@ -106,6 +114,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="2"
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
                     android:gravity="center" />
 
                 <TextView
@@ -114,6 +124,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="1"
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
                     android:gravity="center" />
 
             </LinearLayout>

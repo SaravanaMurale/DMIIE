@@ -4,9 +4,9 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
 
-    <string name="total_customer">Customer</string>
+    <string name="total_customer">Total Customer</string>
     <string name="total_assigned">Total Assigned</string>
-    <string name="followup">Followu</string>
+    <string name="followup">Followup</string>
     <string name="closed">closed</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
