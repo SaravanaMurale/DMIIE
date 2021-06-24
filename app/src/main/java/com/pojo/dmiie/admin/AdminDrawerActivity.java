@@ -79,14 +79,33 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
     private void getDashBoardCount() {
 
         AdminDashBoardCountDTO adminDashBoardCountDTO=new AdminDashBoardCountDTO("Saravana",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO1=new AdminDashBoardCountDTO("Murali",5,0,5,2);
+        AdminDashBoardCountDTO adminDashBoardCountDTO1=new AdminDashBoardCountDTO("Murali",50,0,5,2);
         AdminDashBoardCountDTO adminDashBoardCountDTO2=new AdminDashBoardCountDTO("Suresh",50,5,2,6);
         AdminDashBoardCountDTO adminDashBoardCountDTO3=new AdminDashBoardCountDTO("Ramesh",50,5,2,6);
+        AdminDashBoardCountDTO adminDashBoardCountDTO4=new AdminDashBoardCountDTO("Saravana",50,5,2,6);
+        AdminDashBoardCountDTO adminDashBoardCountDTO5=new AdminDashBoardCountDTO("Murali",50,0,5,2);
+        AdminDashBoardCountDTO adminDashBoardCountDTO6=new AdminDashBoardCountDTO("Suresh",50,5,2,6);
+        AdminDashBoardCountDTO adminDashBoardCountDTO7=new AdminDashBoardCountDTO("Ramesh",50,5,2,6);
+        AdminDashBoardCountDTO adminDashBoardCountDTO8=new AdminDashBoardCountDTO("Saravana",50,5,2,6);
+        AdminDashBoardCountDTO adminDashBoardCountDTO9=new AdminDashBoardCountDTO("Murali",50,0,5,2);
+        AdminDashBoardCountDTO adminDashBoardCountDTO10=new AdminDashBoardCountDTO("Suresh",50,5,2,6);
+        AdminDashBoardCountDTO adminDashBoardCountDTO11=new AdminDashBoardCountDTO("Ramesh",50,5,2,6);
 
         adminDashBoardCountDTOList.add(adminDashBoardCountDTO);
         adminDashBoardCountDTOList.add(adminDashBoardCountDTO1);
         adminDashBoardCountDTOList.add(adminDashBoardCountDTO2);
         adminDashBoardCountDTOList.add(adminDashBoardCountDTO3);
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO4);
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO5);
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO6);
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO7);
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO8);
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO9);
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO);
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO10);
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO11);
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO5);
+        adminDashBoardCountDTOList.add(adminDashBoardCountDTO6);
 
         adminDashBoardAdapter.setData(adminDashBoardCountDTOList);
 

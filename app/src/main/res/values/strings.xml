@@ -4,8 +4,8 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
 
-    <string name="total_customer">Total Customer</string>
-    <string name="total_assigned">Total Assigned</string>
+    <string name="total_customer">Customer</string>
+    <string name="total_assigned">Assigned</string>
     <string name="followup">Followup</string>
     <string name="closed">closed</string>
 

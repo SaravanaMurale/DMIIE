@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
 
 
-        <TableRow>
+        <LinearLayout
+            android:id="@+id/tabularView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="6"
+            android:layout_margin="@dimen/five_dp"
+            android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/admin_salesper_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:textColor="@color/green"
+                    android:textStyle="bold"
+                    android:gravity="left"
+                    android:text="Saravana Murali"
+                    />
 
                 <TextView
                     android:id="@+id/totalCustomerCount"
@@ -24,11 +41,12 @@
                     android:id="@+id/totalAssignedCount"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="1.5"
                     android:text="5"
                     android:textStyle="bold"
                     android:textColor="@color/green"
                     android:gravity="center" />
+
 
                 <TextView
                     android:id="@+id/followCount"
@@ -40,6 +58,7 @@
                     android:textColor="@color/green"
                     android:gravity="center" />
 
+
                 <TextView
                     android:id="@+id/closedCount"
                     android:layout_width="0dp"
@@ -49,146 +68,225 @@
                     android:textStyle="bold"
                     android:textColor="@color/green"
                     android:gravity="center" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tabularView"
+            android:layout_marginTop="1dp"
+            android:background="@color/gray" />
+
+
+
+
+    <!--<TableLayout
+        android:id="@+id/tabularView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/admin_salesper_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Name"
+                android:textColor="@color/green"
+                android:textStyle="bold" />
+
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/three_dp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/totalCustomerCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="50"
+                android:textColor="@color/green"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/totalAssignedCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@color/green"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/followCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="@color/green"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/closedCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/green"
+                android:textStyle="bold" />
 
         </TableRow>
 
-    </TableLayout>
+    </TableLayout>-->
 
 
-
-
-
-
-
-   <!-- <androidx.cardview.widget.CardView
+    <!--<View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/five_dp"
-        app:cardCornerRadius="@dimen/five_dp"
-        >
+        android:layout_height="1dp"
+        android:layout_below="@id/tabularView"
+        android:layout_marginTop="@dimen/three_dp"
+        android:background="@color/gray" />
+-->
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/five_dp"
-            android:background="@color/gray_smoke"
-            >
+    <!-- <androidx.cardview.widget.CardView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="@dimen/five_dp"
+         app:cardCornerRadius="@dimen/five_dp"
+         >
 
-        <TextView
-            android:id="@+id/admin_salesper_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Name"
-            />
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:padding="@dimen/five_dp"
+             android:background="@color/gray_smoke"
+             >
 
-        <TextView
-            android:id="@+id/admin_salesper_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/admin_salesper_name"
-            android:text="9999999999"
-            android:layout_marginTop="@dimen/five_dp"/>
+         <TextView
+             android:id="@+id/admin_salesper_name"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:text="Name"
+             />
 
-
-            <LinearLayout
-                android:id="@+id/dashboard_tab"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/admin_salesper_number"
-                android:weightSum="4"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/five_dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/total_customer"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/total_assigned"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/followup"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textStyle="bold"
-                    android:text="@string/closed"
-                    android:gravity="center" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/dashboard_tab"
-                android:weightSum="4"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/five_dp">
-
-                <TextView
-                    android:id="@+id/totalCustomerCount"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="50"
-                    android:textColor="@color/green"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-
-                <TextView
-                    android:id="@+id/totalAssignedCount"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="5"
-                    android:textStyle="bold"
-                    android:textColor="@color/green"
-                    android:gravity="center" />
-
-                <TextView
-                    android:id="@+id/followCount"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="2"
-                    android:textStyle="bold"
-                    android:textColor="@color/green"
-                    android:gravity="center" />
-
-                <TextView
-                    android:id="@+id/closedCount"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="1"
-                    android:textStyle="bold"
-                    android:textColor="@color/green"
-                    android:gravity="center" />
-
-            </LinearLayout>
+         <TextView
+             android:id="@+id/admin_salesper_number"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:layout_below="@id/admin_salesper_name"
+             android:text="9999999999"
+             android:layout_marginTop="@dimen/five_dp"/>
 
 
-        </RelativeLayout>
+             <LinearLayout
+                 android:id="@+id/dashboard_tab"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@id/admin_salesper_number"
+                 android:weightSum="4"
+                 android:orientation="horizontal"
+                 android:layout_marginTop="@dimen/five_dp">
 
-    </androidx.cardview.widget.CardView>-->
+                 <TextView
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="@string/total_customer"
+                     android:textStyle="bold"
+                     android:gravity="center" />
+
+                 <TextView
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="@string/total_assigned"
+                     android:textStyle="bold"
+                     android:gravity="center" />
+
+                 <TextView
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="@string/followup"
+                     android:textStyle="bold"
+                     android:gravity="center" />
+
+                 <TextView
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:textStyle="bold"
+                     android:text="@string/closed"
+                     android:gravity="center" />
+
+             </LinearLayout>
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@id/dashboard_tab"
+                 android:weightSum="4"
+                 android:orientation="horizontal"
+                 android:layout_marginTop="@dimen/five_dp">
+
+                 <TextView
+                     android:id="@+id/totalCustomerCount"
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="50"
+                     android:textColor="@color/green"
+                     android:textStyle="bold"
+                     android:gravity="center" />
+
+                 <TextView
+                     android:id="@+id/totalAssignedCount"
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="5"
+                     android:textStyle="bold"
+                     android:textColor="@color/green"
+                     android:gravity="center" />
+
+                 <TextView
+                     android:id="@+id/followCount"
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="2"
+                     android:textStyle="bold"
+                     android:textColor="@color/green"
+                     android:gravity="center" />
+
+                 <TextView
+                     android:id="@+id/closedCount"
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="1"
+                     android:textStyle="bold"
+                     android:textColor="@color/green"
+                     android:gravity="center" />
+
+             </LinearLayout>
 
 
-</TableLayout>
+         </RelativeLayout>
+
+     </androidx.cardview.widget.CardView>-->
+
+
+</RelativeLayout>
