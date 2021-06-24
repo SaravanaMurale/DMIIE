@@ -1,22 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
+
+
+
+        <TableRow>
+
+                <TextView
+                    android:id="@+id/totalCustomerCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="50"
+                    android:textColor="@color/green"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/totalAssignedCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="5"
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/followCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2"
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/closedCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1"
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:gravity="center" />
+
+        </TableRow>
+
+    </TableLayout>
+
+
+
+
+
+
+
+   <!-- <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/five_dp"
         app:cardCornerRadius="@dimen/five_dp"
-
         >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/five_dp"
+            android:background="@color/gray_smoke"
             >
 
         <TextView
@@ -133,7 +188,7 @@
 
         </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>-->
 
 
-</RelativeLayout>
+</TableLayout>
