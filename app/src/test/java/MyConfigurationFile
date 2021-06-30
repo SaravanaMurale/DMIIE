@@ -8,6 +8,5 @@ UserName:srini
 Password:admin@123
 
 SalesPerson
-UserName
-SalesDeveloper1 & SalesDeveloper2
+UserName :SalesDeveloper1 & SalesDeveloper2
 admin@123
