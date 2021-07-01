@@ -24,69 +24,38 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
 
-        <LinearLayout
-            android:id="@+id/dashboard_tab"
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="6"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/five_dp">
+            android:background="@color/dmiie_yellow"
+            >
 
-            <TextView
-                android:layout_width="0dp"
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.5"
-                android:text="Name"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:gravity="center" />
+                android:text="@string/sales_person"
+                />
 
-
-            <TextView
-                android:layout_width="0dp"
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/total_customer"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:gravity="center" />
+                android:text="@string/customer"
+                />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:layout_weight="1.5"
-                android:text="@string/total_assigned"
-                android:textColor="@color/black"
-                android:gravity="center" />
+        </com.google.android.material.tabs.TabLayout>
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/followup"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:gravity="center" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:text="@string/closed"
-                android:textColor="@color/black"
-                android:gravity="center" />
-
-        </LinearLayout>
-
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/adminRecyclerView"
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/five_dp" />
+            android:layout_height="wrap_content">
+        </androidx.viewpager.widget.ViewPager>
+
+
+
 
         <FrameLayout
             android:id="@+id/fragment_container_admin"

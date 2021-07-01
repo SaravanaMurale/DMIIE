@@ -11,12 +11,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 import com.pojo.dmiie.R;
 import com.pojo.dmiie.model.AdminDashBoardCountDTO;
 
@@ -29,11 +33,16 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
     FragmentManager fragmentManagerAdmin;
     FragmentTransaction fragmentTransactionAdmin;
 
-    RecyclerView recyclerViewAdminDashboard;
-    AdminDashBoardAdapter adminDashBoardAdapter;
+
     Toolbar toolbar;
     
-    List<AdminDashBoardCountDTO> adminDashBoardCountDTOList;
+
+
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private TabItem salesTabItem,customerTabItem;
+    public PagerAdapter pagerAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,18 +52,18 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        tabLayout =(TabLayout)findViewById(R.id.tabLayout);
+        salesTabItem=(TabItem)findViewById(R.id.tab1);
+        customerTabItem=(TabItem)findViewById(R.id.tab2);
+        viewPager=(ViewPager)findViewById(R.id.viewPager);
+
+        pagerAdapter=new com.pojo.dmiie.admin.PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+        viewPager.setAdapter(pagerAdapter);
+
         drawerAdmin = findViewById(R.id.drawer_layout_admin);
         fragmentManagerAdmin=getSupportFragmentManager();
         fragmentTransactionAdmin=fragmentManagerAdmin.beginTransaction();
-        
-        recyclerViewAdminDashboard=(RecyclerView)findViewById(R.id.adminRecyclerView);
-        recyclerViewAdminDashboard.setHasFixedSize(true);
-        recyclerViewAdminDashboard.setLayoutManager(new LinearLayoutManager(AdminDrawerActivity.this));
-        
-        adminDashBoardCountDTOList=new ArrayList<>();
-        
-        adminDashBoardAdapter=new AdminDashBoardAdapter(AdminDrawerActivity.this,adminDashBoardCountDTOList);
-        recyclerViewAdminDashboard.setAdapter(adminDashBoardAdapter);
+
         
         NavigationView navigationView = findViewById(R.id.nav_view_admin);
         navigationView.setNavigationItemSelectedListener(this);
@@ -70,45 +79,35 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
         },2000);
         toggle.syncState();
 
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
 
-        
-        getDashBoardCount();
-        
-    }
+                viewPager.setCurrentItem(tab.getPosition());
 
-    private void getDashBoardCount() {
+                if(tab.getPosition()==0){
+                    pagerAdapter.notifyDataSetChanged();
+                }
+                else if(tab.getPosition()==0){
+                    pagerAdapter.notifyDataSetChanged();
+                }
+                else if(tab.getPosition()==0){
+                    pagerAdapter.notifyDataSetChanged();
+                }
+            }
 
-        AdminDashBoardCountDTO adminDashBoardCountDTO=new AdminDashBoardCountDTO("Saravana",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO1=new AdminDashBoardCountDTO("Murali",50,0,5,2);
-        AdminDashBoardCountDTO adminDashBoardCountDTO2=new AdminDashBoardCountDTO("Suresh",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO3=new AdminDashBoardCountDTO("Ramesh",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO4=new AdminDashBoardCountDTO("Saravana",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO5=new AdminDashBoardCountDTO("Murali",50,0,5,2);
-        AdminDashBoardCountDTO adminDashBoardCountDTO6=new AdminDashBoardCountDTO("Suresh",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO7=new AdminDashBoardCountDTO("Ramesh",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO8=new AdminDashBoardCountDTO("Saravana",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO9=new AdminDashBoardCountDTO("Murali",50,0,5,2);
-        AdminDashBoardCountDTO adminDashBoardCountDTO10=new AdminDashBoardCountDTO("Suresh",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO11=new AdminDashBoardCountDTO("Ramesh",50,5,2,6);
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
 
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO1);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO2);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO3);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO4);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO5);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO6);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO7);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO8);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO9);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO10);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO11);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO5);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO6);
+            }
 
-        adminDashBoardAdapter.setData(adminDashBoardCountDTOList);
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
 
+            }
+        });
+
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
     }
 
     @Override
