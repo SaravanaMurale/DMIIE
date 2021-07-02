@@ -1,7 +1,11 @@
 package com.pojo.dmiie.retrofit;
 
 
+import com.pojo.dmiie.model.LoginRequestDTO;
+import com.pojo.dmiie.model.LoginResponseDTO;
 
+import retrofit2.Call;
+import retrofit2.http.Body;
 
 public interface ApiInterface {
 
@@ -10,11 +14,7 @@ public interface ApiInterface {
 */
 
 
-
-
-
-
-
+    Call<LoginResponseDTO> doLoginAuthentication(@Body LoginRequestDTO loginRequestDTO);
 
 
 }
