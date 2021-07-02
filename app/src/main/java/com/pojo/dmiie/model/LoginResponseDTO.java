@@ -10,6 +10,10 @@ public class LoginResponseDTO extends BaseDTO {
     @SerializedName("data")
     List<UserDetails> userDetailsList;
 
+    public LoginResponseDTO(List<UserDetails> userDetailsList) {
+        this.userDetailsList = userDetailsList;
+    }
+
     public List<UserDetails> getUserDetailsList() {
         return userDetailsList;
     }

@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
-        LoginRequestDTO loginRequestDTO=new LoginRequestDTO(userName,password, AppConstant.DEVICE);
+        final LoginRequestDTO loginRequestDTO=new LoginRequestDTO(userName,password, AppConstant.DEVICE);
 
         Call<LoginResponseDTO> call=apiInterface.doLoginAuthentication(loginRequestDTO);
 
@@ -57,10 +57,26 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponseDTO> call, Response<LoginResponseDTO> response) {
 
+                System.out.println("Success");
+
+                //LoginResponseDTO loginResponseDTO=response.body();
+
+                System.out.println();
+
+                /*(loginResponseDTO.isStatus())*/
+
+
+
+
+
+
+
             }
 
             @Override
             public void onFailure(Call<LoginResponseDTO> call, Throwable t) {
+
+                System.out.println("Exception"+t.getMessage().toString());
 
             }
         });
