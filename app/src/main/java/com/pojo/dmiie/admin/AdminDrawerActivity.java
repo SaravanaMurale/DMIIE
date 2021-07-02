@@ -35,7 +35,6 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
 
 
     Toolbar toolbar;
-    
 
 
     private TabLayout tabLayout;
