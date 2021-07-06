@@ -1,9 +1,12 @@
 package com.pojo.dmiie.model;
 
+import android.widget.TextView;
+
 import com.google.gson.annotations.SerializedName;
 
-public class SalesDashBoardDTO {
+import java.io.Serializable;
 
+public class SalesDashBoardDTO implements Serializable {
 
     @SerializedName("")
     private String saleCustName;
@@ -32,6 +35,13 @@ public class SalesDashBoardDTO {
     @SerializedName("")
     private String saleCustCurrency;
 
+    public SalesDashBoardDTO(String saleCustName, String saleCustMobileNumber, String salCustStatus, String saleCustNeedSample, String saleCustNeedPriceList) {
+        this.saleCustName = saleCustName;
+        this.saleCustMobileNumber = saleCustMobileNumber;
+        this.salCustStatus = salCustStatus;
+        this.saleCustNeedSample = saleCustNeedSample;
+        this.saleCustNeedPriceList = saleCustNeedPriceList;
+    }
 
     public SalesDashBoardDTO(String saleCustName, String saleCustMobileNumber, String saleCustBusOwnerName, String salCustStatus, String saleCustNeedSample, String saleCustNeedPriceList, String saleCustRemark, String saleCustNextFollowUp, String saleCustManualVisitRequired, String saleCustFollowUpStatus, String saleCustFile, String saleCustLastSaleDate, String saleCustCurrency) {
         this.saleCustName = saleCustName;

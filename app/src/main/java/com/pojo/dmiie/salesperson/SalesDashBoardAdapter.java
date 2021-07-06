@@ -29,7 +29,7 @@ public class SalesDashBoardAdapter extends RecyclerView.Adapter<SalesDashBoardAd
 
     public interface SalesDashBoardClickListener{
 
-        public void onSaleClickListener();
+        public void onSaleClickListener(SalesDashBoardDTO salesDashBoardDTO);
 
     }
 
@@ -76,6 +76,16 @@ public class SalesDashBoardAdapter extends RecyclerView.Adapter<SalesDashBoardAd
             salesCustomerStatus=(TextView)itemView.findViewById(R.id.salesCustomerStatus);
             salesSample=(TextView)itemView.findViewById(R.id.salesSample);
             salesPriceList=(TextView)itemView.findViewById(R.id.salesPriceList);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SalesDashBoardDTO salesDashBoardDTO=salesDashBoardDTOList.get(getAdapterPosition());
+
+                    salesDashBoardClickListener.onSaleClickListener(salesDashBoardDTO);
+
+                }
+            });
 
 
 
