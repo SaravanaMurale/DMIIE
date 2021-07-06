@@ -73,6 +73,18 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
 
+
+                if(loginResponseDTO.getUserDetailsDTO().getUserRightsRes().equals(AppConstant.RIGHTS_ADMIN)){
+                    //Open Admin Home Screen
+
+
+                }else if(loginResponseDTO.getUserDetailsDTO().getUserRightsRes().equals(AppConstant.RIGHTS_SALESPERSON)){
+                    //Open Sales Person Home Screen
+
+                }
+
+
+
                 /*System.out.println("UserStatus "+loginResponseDTO.isUserStatus());
                 System.out.println("UserId"+loginResponseDTO.getUserDetailsDTO().getUserIdResponse());
                 System.out.println("Rights"+loginResponseDTO.getUserDetailsDTO().getUserRightsRes());
