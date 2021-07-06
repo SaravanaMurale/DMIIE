@@ -74,22 +74,22 @@ public class SalesDrawerActivity extends AppCompatActivity implements Navigation
     private void getRecyclerViewData() {
 
 
-        SalesDashBoardDTO salesDashBoardDTO=new SalesDashBoardDTO("Srini","9876543219","Active","Yes","1000");
+        SalesDashBoardDTO salesDashBoardDTO=new SalesDashBoardDTO("Srini","98765432","Active","Yes","1000");
         salesDashBoardDTOList.add(salesDashBoardDTO);
 
-        SalesDashBoardDTO salesDashBoardDTO1=new SalesDashBoardDTO("Murali","9876543219","Active","Yes","1000");
+        SalesDashBoardDTO salesDashBoardDTO1=new SalesDashBoardDTO("Murali","98765432","Active","Yes","1000");
         salesDashBoardDTOList.add(salesDashBoardDTO1);
 
-        SalesDashBoardDTO salesDashBoardDTO3=new SalesDashBoardDTO("Srini","9876543219","Active","Yes","1000");
+        SalesDashBoardDTO salesDashBoardDTO3=new SalesDashBoardDTO("Srini","98765432","Active","Yes","1000");
         salesDashBoardDTOList.add(salesDashBoardDTO3);
 
-        SalesDashBoardDTO salesDashBoardDTO4=new SalesDashBoardDTO("Murali","9876543219","Active","Yes","1000");
+        SalesDashBoardDTO salesDashBoardDTO4=new SalesDashBoardDTO("Murali","98765432","Active","Yes","1000");
         salesDashBoardDTOList.add(salesDashBoardDTO4);
 
-        SalesDashBoardDTO salesDashBoardDTO5=new SalesDashBoardDTO("Srini","9876543219","Active","Yes","1000");
+        SalesDashBoardDTO salesDashBoardDTO5=new SalesDashBoardDTO("Srini","98765432","Active","Yes","1000");
         salesDashBoardDTOList.add(salesDashBoardDTO5);
 
-        SalesDashBoardDTO salesDashBoardDTO6=new SalesDashBoardDTO("Murali","9876543219","Active","Yes","1000");
+        SalesDashBoardDTO salesDashBoardDTO6=new SalesDashBoardDTO("Murali","98765432","Active","Yes","1000");
         salesDashBoardDTOList.add(salesDashBoardDTO6);
 
         salesDashBoardAdapter.setData(salesDashBoardDTOList);
