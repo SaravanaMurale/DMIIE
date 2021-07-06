@@ -36,7 +36,7 @@
                 android:id="@+id/tab1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/sales_person"
+                android:text="@string/Dashboard"
                 />
 
             <com.google.android.material.tabs.TabItem

@@ -2,15 +2,18 @@ package com.pojo.dmiie;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.pojo.dmiie.admin.AdminDrawerActivity;
 import com.pojo.dmiie.model.LoginRequestDTO;
 import com.pojo.dmiie.model.LoginResponseDTO;
 import com.pojo.dmiie.retrofit.ApiClient;
 import com.pojo.dmiie.retrofit.ApiInterface;
+import com.pojo.dmiie.salesperson.SalesDrawerActivity;
 import com.pojo.dmiie.util.AppConstant;
 import com.pojo.dmiie.util.PreferenceUtil;
 
@@ -77,9 +80,15 @@ public class LoginActivity extends AppCompatActivity {
                 if(loginResponseDTO.getUserDetailsDTO().getUserRightsRes().equals(AppConstant.RIGHTS_ADMIN)){
                     //Open Admin Home Screen
 
+                    Intent intent=new Intent(LoginActivity.this, AdminDrawerActivity.class);
+                    startActivity(intent);
+
 
                 }else if(loginResponseDTO.getUserDetailsDTO().getUserRightsRes().equals(AppConstant.RIGHTS_SALESPERSON)){
                     //Open Sales Person Home Screen
+
+                    Intent intent=new Intent(LoginActivity.this, SalesDrawerActivity.class);
+                    startActivity(intent);
 
                 }
 

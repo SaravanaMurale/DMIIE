@@ -12,6 +12,7 @@
 
     <string name="sales_person">Sales Person</string>
     <string name="customer">Customer</string>
+    <string name="Dashboard">DashBoard</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
