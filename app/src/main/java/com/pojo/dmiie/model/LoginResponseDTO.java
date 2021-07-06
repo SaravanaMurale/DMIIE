@@ -12,8 +12,6 @@ public class LoginResponseDTO  {
     @SerializedName("data")
     UserDetailsDTO userDetailsDTO;
 
-    public LoginResponseDTO() {
-    }
 
     public LoginResponseDTO(boolean userStatus){
         this.userStatus=userStatus;
@@ -37,8 +35,7 @@ public class LoginResponseDTO  {
 
     public class UserDetailsDTO {
 
-        public UserDetailsDTO() {
-        }
+
 
         @SerializedName("user_id")
         String userIdResponse;

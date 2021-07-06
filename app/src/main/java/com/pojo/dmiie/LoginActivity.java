@@ -9,7 +9,6 @@ import android.widget.Button;
 import com.google.android.material.textfield.TextInputEditText;
 import com.pojo.dmiie.model.LoginRequestDTO;
 import com.pojo.dmiie.model.LoginResponseDTO;
-import com.pojo.dmiie.model.UserDetailsDTO;
 import com.pojo.dmiie.retrofit.ApiClient;
 import com.pojo.dmiie.retrofit.ApiInterface;
 import com.pojo.dmiie.util.AppConstant;
@@ -59,42 +58,25 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponseDTO> call, Response<LoginResponseDTO> response) {
 
-                System.out.println("Success");
-
-
-
 
                 LoginResponseDTO loginResponseDTO=response.body();
 
                 //LoginResponseDTO loginResponseDTO1=new LoginResponseDTO();
 
+                if(loginResponseDTO.isUserStatus()){
 
-                System.out.println("UserStatus "+loginResponseDTO.isUserStatus());
+                    PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.USER_ID,loginResponseDTO.getUserDetailsDTO().getUserIdResponse());
+                    PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.RIGHTS,loginResponseDTO.getUserDetailsDTO().getUserRightsRes());
+                    PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.AUTH_TOKEN,loginResponseDTO.getUserDetailsDTO().getToken());
+
+
+                }
+
+
+                /*System.out.println("UserStatus "+loginResponseDTO.isUserStatus());
                 System.out.println("UserId"+loginResponseDTO.getUserDetailsDTO().getUserIdResponse());
                 System.out.println("Rights"+loginResponseDTO.getUserDetailsDTO().getUserRightsRes());
-                System.out.println("Token"+loginResponseDTO.getUserDetailsDTO().getToken());
-
-
-
-
-                System.out.println();
-
-
-
-               /* if(loginResponseDTO.isStatus()){
-
-                    PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.AUTH_TOKEN,loginResponseDTO.g);
-
-
-
-
-
-
-                }*/
-
-
-
-
+                System.out.println("Token"+loginResponseDTO.getUserDetailsDTO().getToken());*/
 
 
 
