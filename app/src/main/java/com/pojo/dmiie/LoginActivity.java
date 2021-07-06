@@ -9,9 +9,11 @@ import android.widget.Button;
 import com.google.android.material.textfield.TextInputEditText;
 import com.pojo.dmiie.model.LoginRequestDTO;
 import com.pojo.dmiie.model.LoginResponseDTO;
+import com.pojo.dmiie.model.UserDetailsDTO;
 import com.pojo.dmiie.retrofit.ApiClient;
 import com.pojo.dmiie.retrofit.ApiInterface;
 import com.pojo.dmiie.util.AppConstant;
+import com.pojo.dmiie.util.PreferenceUtil;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
-        final LoginRequestDTO loginRequestDTO=new LoginRequestDTO(userName,password, AppConstant.DEVICE);
+        LoginRequestDTO loginRequestDTO=new LoginRequestDTO(userName,password, AppConstant.DEVICE);
 
         Call<LoginResponseDTO> call=apiInterface.doLoginAuthentication(loginRequestDTO);
 
@@ -59,11 +61,36 @@ public class LoginActivity extends AppCompatActivity {
 
                 System.out.println("Success");
 
-                //LoginResponseDTO loginResponseDTO=response.body();
+
+
+
+                LoginResponseDTO loginResponseDTO=response.body();
+
+                //LoginResponseDTO loginResponseDTO1=new LoginResponseDTO();
+
+
+                System.out.println("UserStatus "+loginResponseDTO.isUserStatus());
+                System.out.println("UserId"+loginResponseDTO.getUserDetailsDTO().getUserIdResponse());
+                System.out.println("Rights"+loginResponseDTO.getUserDetailsDTO().getUserRightsRes());
+                System.out.println("Token"+loginResponseDTO.getUserDetailsDTO().getToken());
+
+
+
 
                 System.out.println();
 
-                /*(loginResponseDTO.isStatus())*/
+
+
+               /* if(loginResponseDTO.isStatus()){
+
+                    PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.AUTH_TOKEN,loginResponseDTO.g);
+
+
+
+
+
+
+                }*/
 
 
 

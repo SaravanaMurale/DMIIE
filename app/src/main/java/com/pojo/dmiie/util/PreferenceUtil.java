@@ -10,6 +10,11 @@ public class PreferenceUtil {
 
     public static final String SHARED_PREF_NAME = "dmiie";
     public static final String USER_ID="user_id";
+    public static final String AUTH_TOKEN="auth_token";
+    public static final String ACCESS="access";
+    public static final String RIGHTS="rights";
+    public static final String USER_NAME="user_name";
+
 
 
 

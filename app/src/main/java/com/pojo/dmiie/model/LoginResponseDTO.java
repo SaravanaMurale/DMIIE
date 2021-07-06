@@ -4,15 +4,41 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class LoginResponseDTO extends BaseDTO {
+public class LoginResponseDTO  {
 
+    @SerializedName("status")
+    boolean userStatus;
 
     @SerializedName("data")
-    List<UserDetails> userDetailsList;
+    UserDetailsDTO userDetailsDTO;
 
+    public LoginResponseDTO() {
+    }
 
+    public LoginResponseDTO(boolean userStatus){
+        this.userStatus=userStatus;
+    }
 
-    class UserDetails{
+    public boolean isUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(boolean userStatus) {
+        this.userStatus = userStatus;
+    }
+
+    public UserDetailsDTO getUserDetailsDTO() {
+        return userDetailsDTO;
+    }
+
+    public void setUserDetailsDTO(UserDetailsDTO userDetailsDTO) {
+        this.userDetailsDTO = userDetailsDTO;
+    }
+
+    public class UserDetailsDTO {
+
+        public UserDetailsDTO() {
+        }
 
         @SerializedName("user_id")
         String userIdResponse;
@@ -31,6 +57,20 @@ public class LoginResponseDTO extends BaseDTO {
         int defaulutCreditLimit;
         @SerializedName("default_ledger_group")
         int defaulutLedferGroup;
+
+
+        public UserDetailsDTO(String userIdResponse, String userNameRes, String userAccessRes, String userRightsRes, String token, int defaulutLedgerPrefix, int defaulutCreditLimit, int defaulutLedferGroup) {
+            this.userIdResponse = userIdResponse;
+            this.userNameRes = userNameRes;
+            this.userAccessRes = userAccessRes;
+            this.userRightsRes = userRightsRes;
+            this.token = token;
+            this.defaulutLedgerPrefix = defaulutLedgerPrefix;
+            this.defaulutCreditLimit = defaulutCreditLimit;
+            this.defaulutLedferGroup = defaulutLedferGroup;
+        }
+
+
 
         public String getUserIdResponse() {
             return userIdResponse;
@@ -95,8 +135,7 @@ public class LoginResponseDTO extends BaseDTO {
         public void setDefaulutLedferGroup(int defaulutLedferGroup) {
             this.defaulutLedferGroup = defaulutLedferGroup;
         }
+
     }
-
-
 
 }
