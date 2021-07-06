@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -17,53 +17,228 @@
         <TextView
             android:id="@+id/salesCust_user_name_detailView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="@dimen/ten_dp"
             android:layout_marginLeft="@dimen/five_dp"
             android:layout_marginRight="@dimen/five_dp"
             android:text="Customer Name"
+            android:background="@drawable/rounded_border"
+            android:padding="@dimen/five_dp"
+            android:gravity="center_vertical"
             />
 
         <TextView
             android:id="@+id/salesCust_user_mobile_detailView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_margin="@dimen/five_dp"
             android:text="9876543219"
+            android:background="@drawable/rounded_border"
+            android:padding="@dimen/five_dp"
+            android:gravity="center_vertical"
             />
 
         <TextView
             android:id="@+id/salesCust_owner_mobile_detailView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_margin="@dimen/five_dp"
             android:text="9876543219"
+            android:background="@drawable/rounded_border"
+            android:padding="@dimen/five_dp"
+            android:gravity="center_vertical"
             />
 
-        <!--<com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_cusName_detail"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/ten_dp"
-            >
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/salesCust_user_name_detailView"
+            <Spinner
+                android:id="@+id/salesCust_status_detailView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_baseline_phone_android_24"
-                android:drawablePadding="@dimen/five_dp"
-                android:hint="@string/user_name"
-                android:textColorHint="@color/dmiie_yellow"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_margin="@dimen/five_dp" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp">
+
+            <Spinner
+                android:id="@+id/salesCust_need_sample_detailView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_margin="@dimen/five_dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp">
+
+            <Spinner
+                android:id="@+id/salesCust_need_price_list_detailView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_margin="@dimen/five_dp" />
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/salesCust_remark_detailView"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="@dimen/five_dp"
+            android:hint="Remarks"
+            android:background="@drawable/rounded_border"
+            />
+
+        <RelativeLayout
+            android:id="@+id/nxtfollowUpBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border">
+
+            <TextView
+                android:id="@+id/nextFollowDate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_margin="@dimen/five_dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/eight_dp"
+                android:text="Next Follow Date"
+
                 />
 
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/eight_dp"
+                android:src="@drawable/calender" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp">
+
+            <Spinner
+                android:id="@+id/salesCust_manual_visit_detailView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_margin="@dimen/five_dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp">
+
+            <Spinner
+                android:id="@+id/salesCust_follow_status_detailView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_margin="@dimen/five_dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/salesCust_file_upload_detailView_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/five_dp"
+            >
+
+            <Button
+                android:id="@+id/scholStuUloadImage"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/five_dp"
+                android:background="@drawable/text_bg_btn"
+                android:padding="@dimen/five_dp"
+                android:text="Choose Photo"
+                android:textColor="@color/white"
+                android:textSize="@dimen/fifteen_dp" />
+
+            <TextView
+                android:id="@+id/scholStuText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/ten_dp"
+                android:layout_toRightOf="@id/scholStuUloadImage"
+                android:text="Choolse File..."
 
 
-        </com.google.android.material.textfield.TextInputLayout>-->
+                />
 
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/lastSaleBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border">
+
+            <TextView
+                android:id="@+id/lastSalesDate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_margin="@dimen/five_dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/eight_dp"
+                android:text="Last Sales Date"
+
+                />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/eight_dp"
+                android:src="@drawable/calender" />
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/salesCust_currency_detailView_block"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="@dimen/five_dp"
+            android:hint="Currency"
+            android:background="@drawable/rounded_border"
+            android:padding="@dimen/five_dp"
+            />
+
+        <Button
+            android:id="@+id/btnSalesCustSubmit"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:text="@string/submit"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/text_bg_btn"
+            android:textColor="@color/white"
+            android:layout_margin="@dimen/three_dp"
+            />
 
 
     </LinearLayout>
 
 
-</RelativeLayout>
+</ScrollView>
