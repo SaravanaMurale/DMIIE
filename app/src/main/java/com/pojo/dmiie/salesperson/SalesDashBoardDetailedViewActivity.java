@@ -42,6 +42,7 @@ public class SalesDashBoardDetailedViewActivity extends AppCompatActivity implem
         salesCustName=(TextView)findViewById(R.id.salesCust_user_name_detailView);
         salesCustMobileNum=(TextView)findViewById(R.id.salesCust_user_mobile_detailView);
         salesCustBusOwnNum=(TextView)findViewById(R.id.salesCust_owner_mobile_detailView);
+        salesCustNxtFollowDate=(TextView)findViewById(R.id.nextFollowDate);
 
         salesCustSpinnerStatus=(Spinner)findViewById(R.id.salesCust_status_detailView);
         salesCustSpinnerNeedSample=(Spinner)findViewById(R.id.salesCust_need_sample_detailView);
