@@ -1,6 +1,8 @@
 package com.pojo.dmiie.model;
 
-public class AdminDashBoardCountDTO {
+import java.io.Serializable;
+
+public class AdminDashBoardCountDTO implements Serializable {
 
     String salesPersonName;
     int taotalcustomer;

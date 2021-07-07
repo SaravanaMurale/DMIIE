@@ -1,5 +1,6 @@
 package com.pojo.dmiie.admin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +18,7 @@ import com.pojo.dmiie.model.AdminDashBoardCountDTO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeSalesPersonFragment extends Fragment {
+public class HomeSalesPersonFragment extends Fragment implements AdminDashBoardAdapter.SalesPerAssignListener {
 
     RecyclerView recyclerViewAdminDashboard;
     AdminDashBoardAdapter adminDashBoardAdapter;
@@ -36,7 +37,7 @@ public class HomeSalesPersonFragment extends Fragment {
 
         adminDashBoardCountDTOList=new ArrayList<>();
 
-        adminDashBoardAdapter=new AdminDashBoardAdapter(getActivity(),adminDashBoardCountDTOList);
+        adminDashBoardAdapter=new AdminDashBoardAdapter(getActivity(),adminDashBoardCountDTOList,HomeSalesPersonFragment.this);
         recyclerViewAdminDashboard.setAdapter(adminDashBoardAdapter);
 
         getDashBoardCount();
@@ -80,8 +81,15 @@ public class HomeSalesPersonFragment extends Fragment {
     }
 
 
+    @Override
+    public void onSalesPersonAssignClick(AdminDashBoardCountDTO adminDashBoardCountDTO) {
+
+        Intent intent=new Intent(getActivity(),SalesPersonAssignActivity.class);
+        intent.putExtra("LIST",adminDashBoardCountDTO);
+        startActivity(intent);
 
 
 
 
+    }
 }

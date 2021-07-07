@@ -18,10 +18,19 @@ public class AdminDashBoardAdapter extends RecyclerView.Adapter<AdminDashBoardAd
 
     Context context;
     List<AdminDashBoardCountDTO> adminDashBoardCountDTOList;
+    SalesPerAssignListener salesPerAssignListener;
 
-    public AdminDashBoardAdapter(Context context, List<AdminDashBoardCountDTO> adminDashBoardCountDTOList) {
+
+    interface SalesPerAssignListener{
+
+        public void onSalesPersonAssignClick(AdminDashBoardCountDTO adminDashBoardCountDTO);
+
+    }
+
+    public AdminDashBoardAdapter(Context context, List<AdminDashBoardCountDTO> adminDashBoardCountDTOList, SalesPerAssignListener salesPerAssignListener) {
         this.context = context;
         this.adminDashBoardCountDTOList = adminDashBoardCountDTOList;
+        this.salesPerAssignListener = salesPerAssignListener;
     }
 
     public void setData(List<AdminDashBoardCountDTO> adminDashBoardCountDTOList){
@@ -67,6 +76,19 @@ public class AdminDashBoardAdapter extends RecyclerView.Adapter<AdminDashBoardAd
             totalAssigned=(TextView)itemView.findViewById(R.id.totalAssignedCount);
             followUp=(TextView)itemView.findViewById(R.id.followCount);
             closed=(TextView)itemView.findViewById(R.id.closedCount);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    AdminDashBoardCountDTO adminDashBoardCountDTO=adminDashBoardCountDTOList.get(getAdapterPosition());
+                    salesPerAssignListener.onSalesPersonAssignClick(adminDashBoardCountDTO);
+
+
+
+
+                }
+            });
 
         }
     }
