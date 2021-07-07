@@ -15,7 +15,7 @@
         <activity android:name=".salesperson.SalesDashBoardDetailedViewActivity" />
         <!-- <activity android:name=".salesperson.SalesDrawerActivity" />-->
         <!-- <activity android:name=".LoginActivity"></activity> -->
-        <activity android:name=".salesperson.SalesDrawerActivity">
+        <activity android:name=".admin.AdminDrawerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
