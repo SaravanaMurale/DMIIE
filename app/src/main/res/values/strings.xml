@@ -20,4 +20,39 @@
 
     <string name="submit">Submit</string>
 
+
+    <string-array name="customer_status">
+        <item>Customer Status</item>
+        <item>Active</item>
+        <item>InActive</item>
+    </string-array>
+
+    <string-array name="need_sample">
+        <item>Need Sample</item>
+        <item>Yes</item>
+        <item>No</item>
+        <item>N/A</item>
+    </string-array>
+
+    <string-array name="need_price_list">
+        <item>Need Price List</item>
+        <item>Yes</item>
+        <item>No</item>
+        <item>N/A</item>
+    </string-array>
+
+    <string-array name="manual_visit">
+        <item>Manual Visit Required</item>
+        <item>Yes</item>
+        <item>No</item>
+        <item>N/A</item>
+    </string-array>
+
+    <string-array name="nxt_follow">
+        <item>Follow up Status</item>
+        <item>Inprogress</item>
+        <item>Closed</item>
+    </string-array>
+
+
 </resources>
