@@ -118,9 +118,6 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
 
 
         switch (item.getItemId()) {
-            case R.id.nav_message:
-                fragment=new AssignSalesPersonFragment();
-                break;
 
             case R.id.nav_chat:
                 fragment=new AdminReportFragment();
