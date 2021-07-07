@@ -26,14 +26,10 @@ import com.pojo.dmiie.model.SalesDashBoardDTO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SalesDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, SalesDashBoardAdapter.SalesDashBoardClickListener {
+public class SalesDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerSales;
 
-    private RecyclerView salesDashBoardRecyclerView;
-    private SalesDashBoardAdapter salesDashBoardAdapter;
-
-    private List<SalesDashBoardDTO> salesDashBoardDTOList;
 
 
     private TabLayout tabLayoutSales;
@@ -63,14 +59,7 @@ public class SalesDrawerActivity extends AppCompatActivity implements Navigation
 
 
 
-        salesDashBoardRecyclerView=(RecyclerView)findViewById(R.id.salesDashBoardRecyclerView);
-        salesDashBoardRecyclerView.setHasFixedSize(true);
-        salesDashBoardRecyclerView.setLayoutManager(new LinearLayoutManager(SalesDrawerActivity.this));
 
-        salesDashBoardDTOList=new ArrayList<>();
-
-        salesDashBoardAdapter=new SalesDashBoardAdapter(SalesDrawerActivity.this,salesDashBoardDTOList,SalesDrawerActivity.this);
-        salesDashBoardRecyclerView.setAdapter(salesDashBoardAdapter);
 
 
 
@@ -88,35 +77,39 @@ public class SalesDrawerActivity extends AppCompatActivity implements Navigation
         },1000);
         toggle.syncState();
 
+        tabLayoutSales.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPagerSales.setCurrentItem(tab.getPosition());
 
-        getRecyclerViewData();
+                if(tab.getPosition()==0){
+                    pagerAdapterSales.notifyDataSetChanged();
+                }
+                else if(tab.getPosition()==0){
+                    pagerAdapterSales.notifyDataSetChanged();
+                }
+                else if(tab.getPosition()==0){
+                    pagerAdapterSales.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+
+
 
     }
 
-    private void getRecyclerViewData() {
 
-
-        SalesDashBoardDTO salesDashBoardDTO=new SalesDashBoardDTO("Srini","98765432","Active","Yes","1000");
-        salesDashBoardDTOList.add(salesDashBoardDTO);
-
-        SalesDashBoardDTO salesDashBoardDTO1=new SalesDashBoardDTO("Murali","98765432","Active","Yes","1000");
-        salesDashBoardDTOList.add(salesDashBoardDTO1);
-
-        SalesDashBoardDTO salesDashBoardDTO3=new SalesDashBoardDTO("Srini","98765432","Active","Yes","1000");
-        salesDashBoardDTOList.add(salesDashBoardDTO3);
-
-        SalesDashBoardDTO salesDashBoardDTO4=new SalesDashBoardDTO("Murali","98765432","Active","Yes","1000");
-        salesDashBoardDTOList.add(salesDashBoardDTO4);
-
-        SalesDashBoardDTO salesDashBoardDTO5=new SalesDashBoardDTO("Srini","98765432","Active","Yes","1000");
-        salesDashBoardDTOList.add(salesDashBoardDTO5);
-
-        SalesDashBoardDTO salesDashBoardDTO6=new SalesDashBoardDTO("Murali","98765432","Active","Yes","1000");
-        salesDashBoardDTOList.add(salesDashBoardDTO6);
-
-        salesDashBoardAdapter.setData(salesDashBoardDTOList);
-
-    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -150,12 +143,4 @@ public class SalesDrawerActivity extends AppCompatActivity implements Navigation
     private void clearAllData() {
     }
 
-    @Override
-    public void onSaleClickListener(SalesDashBoardDTO salesDashBoardDTO) {
-
-        Intent intent=new Intent(SalesDrawerActivity.this,SalesDashBoardDetailedViewActivity.class);
-        intent.putExtra("LIST",salesDashBoardDTO);
-        startActivity(intent);
-
-    }
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pojo.dmiie.R;
@@ -26,6 +27,7 @@ public class SalesDashBoardAdapter extends RecyclerView.Adapter<SalesDashBoardAd
         this.salesDashBoardDTOList = salesDashBoardDTOList;
         this.salesDashBoardClickListener = salesDashBoardClickListener;
     }
+
 
     public interface SalesDashBoardClickListener{
 
