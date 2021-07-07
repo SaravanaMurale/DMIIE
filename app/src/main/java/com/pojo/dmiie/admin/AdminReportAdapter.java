@@ -78,6 +78,18 @@ public class AdminReportAdapter extends RecyclerView.Adapter<AdminReportAdapter.
             reportMobileNum = (TextView) itemView.findViewById(R.id.reportMobileNum);
             reportStatus = (TextView) itemView.findViewById(R.id.reportStatus);
             reportNxtFollow = (TextView) itemView.findViewById(R.id.reportNxtFollow);
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    AdminReportDTO adminReportDTO  =adminReportDTOList.get(getAdapterPosition());
+                    adminReportClickListener.onAdminReportClick(adminReportDTO);
+
+                }
+            });
+
         }
     }
 

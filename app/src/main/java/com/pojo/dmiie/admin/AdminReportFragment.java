@@ -30,7 +30,7 @@ public class AdminReportFragment extends Fragment implements AdminReportAdapter.
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_admin_report, container, false);
 
-        reportRecyclerView=(RecyclerView)view.findViewById(R.id.adminRecyclerView);
+        reportRecyclerView=(RecyclerView)view.findViewById(R.id.reportRecyclerview);
         reportRecyclerView.setHasFixedSize(true);
         reportRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -46,10 +46,6 @@ public class AdminReportFragment extends Fragment implements AdminReportAdapter.
 
     private void getRecyclerViewData() {
 
-        String reportSalesPerName;
-        String reportCustName;
-        String reportMobileNumber;
-        String reportStatus;
 
         AdminReportDTO adminReportDTO=new AdminReportDTO("Srini","Murali","9876543219","Active");
         AdminReportDTO adminReportDTO1=new AdminReportDTO("Saravana","Srini","9876543219","Active");

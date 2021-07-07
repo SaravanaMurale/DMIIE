@@ -26,7 +26,7 @@ public class PagerAdapter  extends FragmentPagerAdapter {
             case 0:
                 return new HomeSalesPersonFragment();
             case 1:
-                return new CustomerSalesPersonFragment();
+                return new AdminReportFragment();
 
             default:
                 return null;
