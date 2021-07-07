@@ -1,6 +1,8 @@
 package com.pojo.dmiie.model;
 
-public class AdminReportDTO {
+import java.io.Serializable;
+
+public class AdminReportDTO  implements Serializable {
 
     String reportSalesPerName;
     String reportCustName;

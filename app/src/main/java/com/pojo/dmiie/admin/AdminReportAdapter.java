@@ -29,14 +29,14 @@ public class AdminReportAdapter extends RecyclerView.Adapter<AdminReportAdapter.
         this.adminReportClickListener = adminReportClickListener;
     }
 
-    interface  AdminReportClickListener{
+    interface AdminReportClickListener {
 
         public void onAdminReportClick(AdminReportDTO adminReportDTO);
 
     }
 
-    public void setData(List<AdminReportDTO> adminReportDTOList){
-        this.adminReportDTOList=adminReportDTOList;
+    public void setData(List<AdminReportDTO> adminReportDTOList) {
+        this.adminReportDTOList = adminReportDTOList;
         notifyDataSetChanged();
     }
 
@@ -65,19 +65,19 @@ public class AdminReportAdapter extends RecyclerView.Adapter<AdminReportAdapter.
         return adminReportDTOList.size();
     }
 
-    public class AdminReportViewHolder extends RecyclerView.ViewHolder{
+    public class AdminReportViewHolder extends RecyclerView.ViewHolder {
 
-        TextView reportSalesPerName,reportCustName,reportMobileNum,reportStatus,reportNxtFollow;
+        TextView reportSalesPerName, reportCustName, reportMobileNum, reportStatus, reportNxtFollow;
 
         public AdminReportViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            reportSalesPerName=(TextView)itemView.findViewById(R.id.reportSalesPerName);
-            reportCustName=(TextView)itemView.findViewById(R.id.reportCustName);
+            reportSalesPerName = (TextView) itemView.findViewById(R.id.reportSalesPerName);
+            reportCustName = (TextView) itemView.findViewById(R.id.reportCustName);
 
-            reportMobileNum=(TextView)itemView.findViewById(R.id.reportMobileNum);
-            reportStatus=(TextView)itemView.findViewById(R.id.reportStatus);
-            reportNxtFollow=(TextView)itemView.findViewById(R.id.reportNxtFollow);
+            reportMobileNum = (TextView) itemView.findViewById(R.id.reportMobileNum);
+            reportStatus = (TextView) itemView.findViewById(R.id.reportStatus);
+            reportNxtFollow = (TextView) itemView.findViewById(R.id.reportNxtFollow);
         }
     }
 
