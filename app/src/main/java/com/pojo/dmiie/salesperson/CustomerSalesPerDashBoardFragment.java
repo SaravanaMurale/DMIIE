@@ -26,6 +26,13 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
 
     private List<CustomerDashBoardDTO> customerDashBoardDTOList;
 
+    List<String> ledgerList;
+
+    CustomerSalesPerDashBoardFragment(List<String> ledgerList){
+        this.ledgerList=ledgerList;
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

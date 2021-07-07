@@ -17,6 +17,10 @@ import com.pojo.dmiie.salesperson.SalesDrawerActivity;
 import com.pojo.dmiie.util.AppConstant;
 import com.pojo.dmiie.util.PreferenceUtil;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -87,7 +91,18 @@ public class LoginActivity extends AppCompatActivity {
                 }else if(loginResponseDTO.getUserDetailsDTO().getUserRightsRes().equals(AppConstant.RIGHTS_SALESPERSON)){
                     //Open Sales Person Home Screen
 
+                    List<String> ledgerList=new ArrayList<>();
+
+                   String ledgerWithComma= loginResponseDTO.getUserDetailsDTO().getLedgerCodes();
+
+                    String[] arrSplit = ledgerWithComma.split(",");
+
+                    for (int i = 0; i <arrSplit.length ; i++) {
+                        ledgerList.add(arrSplit[i]);
+                    }
+
                     Intent intent=new Intent(LoginActivity.this, SalesDrawerActivity.class);
+                    intent.putExtra("LEDGERLIST", (Serializable) ledgerList);
                     startActivity(intent);
                     finish();
 

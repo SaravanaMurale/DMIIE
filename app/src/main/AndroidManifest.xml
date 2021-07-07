@@ -13,10 +13,10 @@
         <activity android:name=".admin.AdminReportDetailedViewActivity" />
         <activity android:name=".salesperson.CustomerDashBoardDetailedViewActivity" />
         <activity android:name=".salesperson.SalesDashBoardDetailedViewActivity" />
-         <activity android:name=".salesperson.SalesDrawerActivity" />
+        <!--<activity android:name=".salesperson.SalesDrawerActivity" />-->
         <activity android:name=".admin.AdminDrawerActivity"/>
 
-        <activity android:name=".LoginActivity">
+        <activity android:name=".salesperson.SalesDrawerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

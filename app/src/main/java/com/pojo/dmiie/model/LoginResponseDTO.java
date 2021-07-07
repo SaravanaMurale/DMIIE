@@ -47,6 +47,10 @@ public class LoginResponseDTO  {
         String userRightsRes;
         @SerializedName("token")
         String token;
+        @SerializedName("ledger_codes")
+        String ledgerCodes;
+        @SerializedName("company_code")
+        String companyCode;
 
         @SerializedName("default_ledger_prefix")
         int defaulutLedgerPrefix;
@@ -56,18 +60,18 @@ public class LoginResponseDTO  {
         int defaulutLedferGroup;
 
 
-        public UserDetailsDTO(String userIdResponse, String userNameRes, String userAccessRes, String userRightsRes, String token, int defaulutLedgerPrefix, int defaulutCreditLimit, int defaulutLedferGroup) {
+        public UserDetailsDTO(String userIdResponse, String userNameRes, String userAccessRes, String userRightsRes, String token, String ledgerCodes, String companyCode, int defaulutLedgerPrefix, int defaulutCreditLimit, int defaulutLedferGroup) {
             this.userIdResponse = userIdResponse;
             this.userNameRes = userNameRes;
             this.userAccessRes = userAccessRes;
             this.userRightsRes = userRightsRes;
             this.token = token;
+            this.ledgerCodes = ledgerCodes;
+            this.companyCode = companyCode;
             this.defaulutLedgerPrefix = defaulutLedgerPrefix;
             this.defaulutCreditLimit = defaulutCreditLimit;
             this.defaulutLedferGroup = defaulutLedferGroup;
         }
-
-
 
         public String getUserIdResponse() {
             return userIdResponse;
@@ -133,6 +137,21 @@ public class LoginResponseDTO  {
             this.defaulutLedferGroup = defaulutLedferGroup;
         }
 
+        public String getLedgerCodes() {
+            return ledgerCodes;
+        }
+
+        public void setLedgerCodes(String ledgerCodes) {
+            this.ledgerCodes = ledgerCodes;
+        }
+
+        public String getCompanyCode() {
+            return companyCode;
+        }
+
+        public void setCompanyCode(String companyCode) {
+            this.companyCode = companyCode;
+        }
     }
 
 }

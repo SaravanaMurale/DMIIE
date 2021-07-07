@@ -40,11 +40,17 @@ public class SalesDrawerActivity extends AppCompatActivity implements Navigation
     private TabItem salesTabItemSales,customerTabItemSales;
     public PagerAdapterSales pagerAdapterSales;
 
+    List<String> ledgerList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sales_drawer);
+
+        Intent intent=getIntent();
+        ledgerList= (List<String>) intent.getSerializableExtra("LEDGERLIST");
+
 
         Toolbar toolbar = findViewById(R.id.toolbar_sales);
         setSupportActionBar(toolbar);
@@ -57,7 +63,7 @@ public class SalesDrawerActivity extends AppCompatActivity implements Navigation
         customerTabItemSales=(TabItem)findViewById(R.id.tab2Sales);
         viewPagerSales=(ViewPager)findViewById(R.id.viewPagerSales);
 
-        pagerAdapterSales =new PagerAdapterSales(getSupportFragmentManager(),tabLayoutSales.getTabCount());
+        pagerAdapterSales =new PagerAdapterSales(getSupportFragmentManager(),tabLayoutSales.getTabCount(),ledgerList);
         viewPagerSales.setAdapter(pagerAdapterSales);
 
         NavigationView navigationView = findViewById(R.id.nav_view_admin);

@@ -5,16 +5,20 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import java.util.List;
+
 public class PagerAdapterSales extends FragmentPagerAdapter {
 
 
     private int numOfTabsSales;
+    List<String> ledgerList;
 
 
-    public PagerAdapterSales(@NonNull FragmentManager fm,int numOfTabsSales) {
+    public PagerAdapterSales(@NonNull FragmentManager fm, int numOfTabsSales, List<String> ledgerList) {
         super(fm);
 
         this.numOfTabsSales=numOfTabsSales;
+        this.ledgerList=ledgerList;
 
     }
 
@@ -25,7 +29,7 @@ public class PagerAdapterSales extends FragmentPagerAdapter {
             case 0:
                 return new HomeSalesPerDashBoardFragment();
             case 1:
-                return new CustomerSalesPerDashBoardFragment();
+                return new CustomerSalesPerDashBoardFragment(ledgerList);
 
             default:
                 return null;
