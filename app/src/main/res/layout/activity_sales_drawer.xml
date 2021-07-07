@@ -24,6 +24,36 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutSales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dmiie_yellow"
+            >
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab1Sales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Dashboard"
+                />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab2Sales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/customer"
+                />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerSales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </androidx.viewpager.widget.ViewPager>
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/salesDashBoardRecyclerView"
             android:layout_width="match_parent"

@@ -8,6 +8,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +18,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 import com.pojo.dmiie.R;
 import com.pojo.dmiie.model.SalesDashBoardDTO;
 
@@ -31,6 +35,13 @@ public class SalesDrawerActivity extends AppCompatActivity implements Navigation
 
     private List<SalesDashBoardDTO> salesDashBoardDTOList;
 
+
+    private TabLayout tabLayoutSales;
+    private ViewPager viewPagerSales;
+    private TabItem salesTabItemSales,customerTabItemSales;
+    public PagerAdapterSales pagerAdapterSales;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +51,17 @@ public class SalesDrawerActivity extends AppCompatActivity implements Navigation
         setSupportActionBar(toolbar);
 
         drawerSales = findViewById(R.id.drawer_layout_sales);
+
+
+        tabLayoutSales =(TabLayout)findViewById(R.id.tabLayoutSales);
+        salesTabItemSales=(TabItem)findViewById(R.id.tab1Sales);
+        customerTabItemSales=(TabItem)findViewById(R.id.tab2Sales);
+        viewPagerSales=(ViewPager)findViewById(R.id.viewPagerSales);
+
+        pagerAdapterSales =new PagerAdapterSales(getSupportFragmentManager(),tabLayoutSales.getTabCount());
+        viewPagerSales.setAdapter(pagerAdapterSales);
+
+
 
         salesDashBoardRecyclerView=(RecyclerView)findViewById(R.id.salesDashBoardRecyclerView);
         salesDashBoardRecyclerView.setHasFixedSize(true);
