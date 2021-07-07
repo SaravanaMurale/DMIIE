@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -21,8 +22,10 @@ import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.pojo.dmiie.LoginActivity;
 import com.pojo.dmiie.R;
 import com.pojo.dmiie.model.AdminDashBoardCountDTO;
+import com.pojo.dmiie.util.PreferenceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -142,6 +145,12 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
     }
 
     private void clearAllData() {
+
+        PreferenceUtil.clear(AdminDrawerActivity.this);
+        Intent intent=new Intent(AdminDrawerActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+
     }
 
 

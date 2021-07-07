@@ -20,8 +20,11 @@ import android.widget.TextView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.pojo.dmiie.LoginActivity;
 import com.pojo.dmiie.R;
+import com.pojo.dmiie.admin.AdminDrawerActivity;
 import com.pojo.dmiie.model.SalesDashBoardDTO;
+import com.pojo.dmiie.util.PreferenceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -135,6 +138,13 @@ public class SalesDrawerActivity extends AppCompatActivity implements Navigation
     }
 
     private void clearAllData() {
+
+        PreferenceUtil.clear(SalesDrawerActivity.this);
+        Intent intent=new Intent(SalesDrawerActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+
+
     }
 
 }
