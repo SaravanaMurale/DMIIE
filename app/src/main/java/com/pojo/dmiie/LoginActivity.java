@@ -27,7 +27,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextInputEditText editTxtUserName,editTxtpassowrd;
+    TextInputEditText editTxtUserName, editTxtpassowrd;
     Button btnLogin;
 
 
@@ -42,10 +42,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String userName=editTxtUserName.getText().toString();
-                String password=editTxtpassowrd.getText().toString();
+                String userName = editTxtUserName.getText().toString();
+                String password = editTxtpassowrd.getText().toString();
 
-                doAuthentication(userName,password);
+                doAuthentication(userName, password);
 
 
             }
@@ -57,51 +57,50 @@ public class LoginActivity extends AppCompatActivity {
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
-        LoginRequestDTO loginRequestDTO=new LoginRequestDTO(userName,password, AppConstant.DEVICE);
+        LoginRequestDTO loginRequestDTO = new LoginRequestDTO(userName, password, AppConstant.DEVICE);
 
-        Call<LoginResponseDTO> call=apiInterface.doLoginAuthentication(loginRequestDTO);
+        Call<LoginResponseDTO> call = apiInterface.doLoginAuthentication(loginRequestDTO);
 
         call.enqueue(new Callback<LoginResponseDTO>() {
             @Override
             public void onResponse(Call<LoginResponseDTO> call, Response<LoginResponseDTO> response) {
 
 
-                LoginResponseDTO loginResponseDTO=response.body();
+                LoginResponseDTO loginResponseDTO = response.body();
 
                 //LoginResponseDTO loginResponseDTO1=new LoginResponseDTO();
 
-                if(loginResponseDTO.isUserStatus()){
+                if (loginResponseDTO.isUserStatus()) {
 
-                    PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.USER_ID,loginResponseDTO.getUserDetailsDTO().getUserIdResponse());
-                    PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.RIGHTS,loginResponseDTO.getUserDetailsDTO().getUserRightsRes());
-                    PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.AUTH_TOKEN,loginResponseDTO.getUserDetailsDTO().getToken());
+                    PreferenceUtil.setValueString(LoginActivity.this, PreferenceUtil.USER_ID, loginResponseDTO.getUserDetailsDTO().getUserIdResponse());
+                    PreferenceUtil.setValueString(LoginActivity.this, PreferenceUtil.RIGHTS, loginResponseDTO.getUserDetailsDTO().getUserRightsRes());
+                    PreferenceUtil.setValueString(LoginActivity.this, PreferenceUtil.AUTH_TOKEN, loginResponseDTO.getUserDetailsDTO().getToken());
 
 
                 }
 
 
-
-                if(loginResponseDTO.getUserDetailsDTO().getUserRightsRes().equals(AppConstant.RIGHTS_ADMIN)){
+                if (loginResponseDTO.getUserDetailsDTO().getUserRightsRes().equals(AppConstant.RIGHTS_ADMIN)) {
                     //Open Admin Home Screen
 
-                    Intent intent=new Intent(LoginActivity.this, AdminDrawerActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, AdminDrawerActivity.class);
                     startActivity(intent);
 
 
-                }else if(loginResponseDTO.getUserDetailsDTO().getUserRightsRes().equals(AppConstant.RIGHTS_SALESPERSON)){
+                } else if (loginResponseDTO.getUserDetailsDTO().getUserRightsRes().equals(AppConstant.RIGHTS_SALESPERSON)) {
                     //Open Sales Person Home Screen
 
-                    List<String> ledgerList=new ArrayList<>();
+                    List<String> ledgerList = new ArrayList<>();
 
-                   String ledgerWithComma= loginResponseDTO.getUserDetailsDTO().getLedgerCodes();
+                    String ledgerWithComma = loginResponseDTO.getUserDetailsDTO().getLedgerCodes();
 
                     String[] arrSplit = ledgerWithComma.split(",");
 
-                    for (int i = 0; i <arrSplit.length ; i++) {
+                    for (int i = 0; i < arrSplit.length; i++) {
                         ledgerList.add(arrSplit[i]);
                     }
 
-                    Intent intent=new Intent(LoginActivity.this, SalesDrawerActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, SalesDrawerActivity.class);
                     intent.putExtra("LEDGERLIST", (Serializable) ledgerList);
                     startActivity(intent);
                     finish();
@@ -116,27 +115,24 @@ public class LoginActivity extends AppCompatActivity {
                 System.out.println("Token"+loginResponseDTO.getUserDetailsDTO().getToken());*/
 
 
-
             }
 
             @Override
             public void onFailure(Call<LoginResponseDTO> call, Throwable t) {
 
-                System.out.println("Exception"+t.getMessage().toString());
+                System.out.println("Exception" + t.getMessage().toString());
 
             }
         });
-
-
 
 
     }
 
     private void initView() {
 
-        editTxtUserName=(TextInputEditText)findViewById(R.id.login_user_name);
-        editTxtpassowrd=(TextInputEditText)findViewById(R.id.login_password);
-        btnLogin=(Button)findViewById(R.id.btnLogin);
+        editTxtUserName = (TextInputEditText) findViewById(R.id.login_user_name);
+        editTxtpassowrd = (TextInputEditText) findViewById(R.id.login_password);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
 
     }
 }

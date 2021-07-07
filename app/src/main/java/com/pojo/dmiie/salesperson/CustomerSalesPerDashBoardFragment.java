@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.pojo.dmiie.R;
 import com.pojo.dmiie.model.CustomerDashBoardDTO;
 import com.pojo.dmiie.model.SalesDashBoardDTO;
+import com.pojo.dmiie.retrofit.ApiClient;
+import com.pojo.dmiie.retrofit.ApiInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,10 +50,22 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
         customerDashBoardAdapter=new CustomerDashBoardAdapter(getActivity(),customerDashBoardDTOList, CustomerSalesPerDashBoardFragment.this);
         customerDashBoardRecyclerView.setAdapter(customerDashBoardAdapter);
 
-        getRecyclerViewData();
+        System.out.println("MyLedgerList"+ledgerList.size());
+
+
+        getMyLedgerData();
+
+        //getRecyclerViewData();
 
         return view;
     }
+
+    private void getMyLedgerData() {
+
+        ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
+
+    }
+
 
     private void getRecyclerViewData() {
 
