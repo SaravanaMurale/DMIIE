@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +7,92 @@
     android:orientation="vertical"
     tools:context=".admin.SalesPersonAssignActivity">
 
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       >
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Assign Sales Person"
+           android:layout_gravity="center"
+           android:textStyle="bold"
+           android:textColor="@color/dmiie_blue"
+           android:textSize="@dimen/twenty_five_sp"
+           />
+
+
+    <TextView
+        android:id="@+id/toAssignSalPerName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:layout_marginLeft="@dimen/five_dp"
+        android:layout_marginRight="@dimen/five_dp"
+        android:text="Sales Person Name"
+        android:background="@drawable/square_border"
+        android:padding="@dimen/five_dp"
+        android:gravity="center_vertical"
+        />
+
+       <TextView
+           android:id="@+id/toAssignSalPerId"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+           android:layout_marginTop="@dimen/ten_dp"
+           android:layout_marginLeft="@dimen/five_dp"
+           android:layout_marginRight="@dimen/five_dp"
+           android:text="User Id"
+           android:background="@drawable/square_border"
+           android:padding="@dimen/five_dp"
+           android:gravity="center_vertical"
+           />
+
+       <EditText
+           android:id="@+id/toAssignEmail"
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           android:layout_margin="@dimen/five_dp"
+           android:hint="Email"
+           android:padding="@dimen/five_dp"
+           android:background="@drawable/square_border"
+           />
+
+       <EditText
+           android:id="@+id/toAssignMobile"
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           android:layout_margin="@dimen/five_dp"
+           android:hint="Mobile"
+           android:padding="@dimen/five_dp"
+           android:background="@drawable/square_border"
+           />
+
+       <EditText
+           android:id="@+id/toAssignLedger"
+           android:layout_width="match_parent"
+           android:layout_height="100dp"
+           android:layout_margin="@dimen/five_dp"
+           android:hint="Ledger"
+           android:padding="@dimen/five_dp"
+           android:background="@drawable/square_border"
+           />
+
+       <Button
+           android:layout_width="150dp"
+           android:layout_height="wrap_content"
+           android:text="@string/submit"
+           android:layout_gravity="center"
+           android:layout_marginTop="@dimen/five_dp"
+           android:background="@drawable/text_bg_btn"
+           android:textColor="@color/white"
+           />
+
+   </LinearLayout>
 
 
 
-</RelativeLayout>
+
+</ScrollView>

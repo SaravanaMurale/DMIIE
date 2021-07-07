@@ -6,14 +6,24 @@
     android:orientation="vertical">
 
 
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardTabularView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/five_dp"
+    app:cardCornerRadius="@dimen/three_dp"
+    android:elevation="@dimen/three_dp"
 
+    >
 
         <LinearLayout
             android:id="@+id/tabularView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="6"
-            android:layout_margin="@dimen/five_dp"
+            android:layout_margin="@dimen/three_dp"
+            android:padding="@dimen/five_dp"
+            android:background="@color/gray_smoke"
             android:orientation="horizontal">
 
                 <TextView
@@ -24,7 +34,7 @@
                     android:textColor="@color/green"
                     android:textStyle="bold"
                     android:gravity="left"
-                    android:text="Saravana Murali"
+                    android:text="Murali"
                     />
 
                 <TextView
@@ -71,10 +81,12 @@
 
         </LinearLayout>
 
+</androidx.cardview.widget.CardView>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@id/tabularView"
+            android:layout_below="@id/cardTabularView"
             android:layout_marginTop="1dp"
             android:background="@color/gray" />
 
