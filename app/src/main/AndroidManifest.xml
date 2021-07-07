@@ -14,6 +14,7 @@
         <activity android:name=".salesperson.CustomerDashBoardDetailedViewActivity" />
         <activity android:name=".salesperson.SalesDashBoardDetailedViewActivity" />
          <activity android:name=".salesperson.SalesDrawerActivity" />
+        <activity android:name=".admin.AdminDrawerActivity"/>
 
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -23,9 +24,9 @@
             </intent-filter>
         </activity>
     </application>
+
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
