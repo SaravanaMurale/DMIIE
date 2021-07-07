@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".salesperson.CustomerDashBoardDetailedViewActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/custCust_user_name_detailView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:layout_marginLeft="@dimen/five_dp"
+            android:layout_marginRight="@dimen/five_dp"
+            android:text="Customer Name"
+            android:background="@drawable/square_border"
+            android:padding="@dimen/five_dp"
+            android:gravity="center_vertical"
+            />
+
+        <TextView
+            android:id="@+id/custCust_user_mobile_detailView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="@dimen/five_dp"
+            android:text="9876543219"
+            android:background="@drawable/square_border"
+            android:padding="@dimen/five_dp"
+            android:gravity="center_vertical"
+            />
+
+        <EditText
+            android:id="@+id/custCust_last_purchase_detailView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/square_border"
+            android:layout_margin="@dimen/five_dp"
+            android:hint="Last Purchasae Date"
+            android:paddingLeft="@dimen/three_dp"
+            />
+
+        <EditText
+            android:id="@+id/custCust_last_sale_amt_detailView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/square_border"
+            android:layout_margin="@dimen/five_dp"
+            android:hint="Last Sales Amount"
+            android:paddingLeft="@dimen/three_dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_border"
+            android:layout_margin="@dimen/five_dp">
+
+            <Spinner
+                android:id="@+id/custCust_active_detailView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_margin="@dimen/five_dp" />
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/custCust_remarks_detailView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/square_border"
+            android:layout_margin="@dimen/five_dp"
+            android:hint="Remarks"
+            android:paddingLeft="@dimen/three_dp"
+            />
+
+        <RelativeLayout
+            android:id="@+id/custNxtfollowUpBlock_detailView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/square_border">
+
+            <TextView
+                android:id="@+id/custNextFollowDateDetailView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_margin="@dimen/five_dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/eight_dp"
+                android:text="Next Follow Date"
+
+                />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/eight_dp"
+                android:src="@drawable/calender" />
+
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:background="@color/dmiie_blue"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/five_dp"
+            />
+
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

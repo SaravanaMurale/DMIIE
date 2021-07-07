@@ -1,6 +1,8 @@
 package com.pojo.dmiie.model;
 
-public class CustomerDashBoardDTO {
+import java.io.Serializable;
+
+public class CustomerDashBoardDTO implements Serializable {
 
     String custDate;
     String custCustomerName;
@@ -11,6 +13,13 @@ public class CustomerDashBoardDTO {
     String custRemarks;
     String custNextFollowup;
 
+    public CustomerDashBoardDTO(String custCustomerName, String custCustomerMobileNumber, String custLastPurchaseDate, String custStatus, String custNextFollowup) {
+        this.custCustomerName = custCustomerName;
+        this.custCustomerMobileNumber = custCustomerMobileNumber;
+        this.custLastPurchaseDate = custLastPurchaseDate;
+        this.custStatus = custStatus;
+        this.custNextFollowup = custNextFollowup;
+    }
 
     public CustomerDashBoardDTO(String custDate, String custCustomerName, String custCustomerMobileNumber, String custLastPurchaseDate, String custLastSalesAmt, String custStatus, String custRemarks, String custNextFollowup) {
         this.custDate = custDate;

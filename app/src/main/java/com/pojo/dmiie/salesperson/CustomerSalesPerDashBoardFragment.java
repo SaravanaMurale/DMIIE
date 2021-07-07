@@ -1,5 +1,6 @@
 package com.pojo.dmiie.salesperson;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,11 +41,44 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
         customerDashBoardAdapter=new CustomerDashBoardAdapter(getActivity(),customerDashBoardDTOList, CustomerSalesPerDashBoardFragment.this);
         customerDashBoardRecyclerView.setAdapter(customerDashBoardAdapter);
 
+        getRecyclerViewData();
+
         return view;
     }
 
+    private void getRecyclerViewData() {
+
+        CustomerDashBoardDTO customerDashBoardDTO=new CustomerDashBoardDTO("Srini","9876543219","07-06-2021","Active","15-06-2021");
+        customerDashBoardDTOList.add(customerDashBoardDTO);
+
+        CustomerDashBoardDTO customerDashBoardDTO1=new CustomerDashBoardDTO("Srini","9876543219","07-06-2021","Active","15-06-2021");
+        customerDashBoardDTOList.add(customerDashBoardDTO1);
+
+        CustomerDashBoardDTO customerDashBoardDTO2=new CustomerDashBoardDTO("Srini","9876543219","07-06-2021","Active","15-06-2021");
+        customerDashBoardDTOList.add(customerDashBoardDTO2);
+
+
+        CustomerDashBoardDTO customerDashBoardDTO3=new CustomerDashBoardDTO("Srini","9876543219","07-06-2021","Active","15-06-2021");
+        customerDashBoardDTOList.add(customerDashBoardDTO3);
+
+        CustomerDashBoardDTO customerDashBoardDTO4=new CustomerDashBoardDTO("Srini","9876543219","07-06-2021","Active","15-06-2021");
+        customerDashBoardDTOList.add(customerDashBoardDTO4);
+
+        CustomerDashBoardDTO customerDashBoardDTO5=new CustomerDashBoardDTO("Srini","9876543219","07-06-2021","Active","15-06-2021");
+        customerDashBoardDTOList.add(customerDashBoardDTO5);
+
+        customerDashBoardAdapter.setData(customerDashBoardDTOList);
+
+
+    }
+
     @Override
-    public void onCustomerBashBoardClick() {
+    public void onCustomerBashBoardClick(CustomerDashBoardDTO customerDashBoardDTO) {
+
+        Intent intent=new Intent(getActivity(),CustomerDashBoardDetailedViewActivity.class);
+        intent.putExtra("LIST",customerDashBoardDTO);
+        startActivity(intent);
+
 
     }
 }

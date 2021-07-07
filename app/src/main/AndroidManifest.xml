@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pojo.dmiie">
 
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".salesperson.SalesDashBoardDetailedViewActivity"></activity>
-        <!-- <activity android:name=".salesperson.SalesDrawerActivity"></activity> -->
+        <activity android:name=".salesperson.CustomerDashBoardDetailedViewActivity"></activity>
+        <activity android:name=".salesperson.SalesDashBoardDetailedViewActivity" /> <!-- <activity android:name=".salesperson.SalesDrawerActivity"></activity> -->
         <activity android:name=".admin.AdminDrawerActivity" /> <!-- <activity android:name=".LoginActivity"></activity> -->
         <activity android:name=".salesperson.SalesDrawerActivity">
             <intent-filter>
@@ -24,7 +20,9 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
-
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
 </manifest>

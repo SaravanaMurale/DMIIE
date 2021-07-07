@@ -29,7 +29,7 @@ public class CustomerDashBoardAdapter extends RecyclerView.Adapter<CustomerDashB
     }
 
     public interface CustomerDashBoardClickListener{
-        void onCustomerBashBoardClick();
+        void onCustomerBashBoardClick(CustomerDashBoardDTO customerDashBoardDTO);
     }
 
     public void setData(List<CustomerDashBoardDTO> customerDashBoardDTOList){
@@ -74,6 +74,17 @@ public class CustomerDashBoardAdapter extends RecyclerView.Adapter<CustomerDashB
             custDashPurchase=(TextView)itemView.findViewById(R.id.custDashPurchase);
             custDashStatus=(TextView)itemView.findViewById(R.id.custDashStatus);
             custDashFollow=(TextView)itemView.findViewById(R.id.custDashFollow);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    CustomerDashBoardDTO customerDashBoardDTO =customerDashBoardDTOList.get(getAdapterPosition());
+
+                    customerDashBoardClickListener.onCustomerBashBoardClick(customerDashBoardDTO);
+
+                }
+            });
 
         }
     }
