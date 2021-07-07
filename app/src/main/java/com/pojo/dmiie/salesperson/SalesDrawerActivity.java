@@ -57,12 +57,6 @@ public class SalesDrawerActivity extends AppCompatActivity implements Navigation
         pagerAdapterSales =new PagerAdapterSales(getSupportFragmentManager(),tabLayoutSales.getTabCount());
         viewPagerSales.setAdapter(pagerAdapterSales);
 
-
-
-
-
-
-
         NavigationView navigationView = findViewById(R.id.nav_view_admin);
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerSales, toolbar,
