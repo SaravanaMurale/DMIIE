@@ -1,5 +1,7 @@
 package com.pojo.dmiie.util;
 
+import android.content.Context;
+
 public class AppConstant {
 
     public static final String BASE_URL="https://dmi.allsoftbooks.com/";
@@ -10,5 +12,12 @@ public class AppConstant {
 
     // admin "rw+",
     // sales r
+
+
+    public static String getAuthToken(Context context){
+        String token=PreferenceUtil.getValueString(context,PreferenceUtil.AUTH_TOKEN);
+        return token;
+
+    }
 
 }

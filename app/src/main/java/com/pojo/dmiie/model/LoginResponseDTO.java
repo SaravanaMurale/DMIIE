@@ -35,8 +35,6 @@ public class LoginResponseDTO  {
 
     public class UserDetailsDTO {
 
-
-
         @SerializedName("user_id")
         String userIdResponse;
         @SerializedName("user_name")

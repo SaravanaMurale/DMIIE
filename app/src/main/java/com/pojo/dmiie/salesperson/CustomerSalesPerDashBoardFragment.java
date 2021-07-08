@@ -14,12 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.pojo.dmiie.R;
 import com.pojo.dmiie.model.CustomerDashBoardDTO;
-import com.pojo.dmiie.model.SalesDashBoardDTO;
+import com.pojo.dmiie.model.LedgerRequestDTO;
+import com.pojo.dmiie.model.LedgerResponseDTO;
 import com.pojo.dmiie.retrofit.ApiClient;
 import com.pojo.dmiie.retrofit.ApiInterface;
+import com.pojo.dmiie.util.AppConstant;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CustomerSalesPerDashBoardFragment extends Fragment implements CustomerDashBoardAdapter.CustomerDashBoardClickListener {
 
@@ -53,16 +59,44 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
         System.out.println("MyLedgerList"+ledgerList.size());
 
 
-        getMyLedgerData();
+        for (int i = 0; i <ledgerList.size() ; i++) {
+
+            getMyLedgerData(ledgerList.get(i));
+
+        }
+
+
 
         //getRecyclerViewData();
 
         return view;
     }
 
-    private void getMyLedgerData() {
+    private void getMyLedgerData(String s) {
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
+
+        final LedgerRequestDTO ledgerRequestDTO=new LedgerRequestDTO("v","y","new","y","01-02-2019","30-03-2019","6001 - ","15422");
+
+       Call<LedgerResponseDTO> call=apiInterface.getMyLedgerDetails(AppConstant.getAuthToken(getActivity()),ledgerRequestDTO);
+       call.enqueue(new Callback<LedgerResponseDTO>() {
+           @Override
+           public void onResponse(Call<LedgerResponseDTO> call, Response<LedgerResponseDTO> response) {
+
+
+               System.out.println("LedgerSuccess");
+               LedgerResponseDTO ledgerResponseDTO=response.body();
+
+
+
+
+           }
+
+           @Override
+           public void onFailure(Call<LedgerResponseDTO> call, Throwable t) {
+
+           }
+       });
 
     }
 
