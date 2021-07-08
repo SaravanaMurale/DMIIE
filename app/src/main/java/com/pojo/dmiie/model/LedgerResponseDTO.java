@@ -21,7 +21,7 @@ public class LedgerResponseDTO {
         this.ledgerDetails = ledgerDetails;
     }
 
-    class LedgerDetails{
+   public class LedgerDetails{
 
         @SerializedName("ledger_main")
         List<LedgerMainDTO> ledgerMainDTOList;

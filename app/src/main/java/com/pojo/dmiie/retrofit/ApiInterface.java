@@ -20,13 +20,12 @@ public interface ApiInterface {
 */
 
 
-   @POST("api/authentication/login")
+    @POST("api/authentication/login")
     Call<LoginResponseDTO> doLoginAuthentication(@Body LoginRequestDTO loginRequestDTO);
 
     @Headers({"Content-Type:application/json"})
-   @POST("api/report/ledger/details")
-   Call<LedgerResponseDTO> getMyLedgerDetails(@Header("token") String token, LedgerRequestDTO ledgerRequestDTO);
-
+    @POST("api/report/ledger/details")
+    Call<LedgerResponseDTO> getMyLedgerDetails(@Header("token") String token,@Body LedgerRequestDTO ledgerRequestDTO);
 
 
 }

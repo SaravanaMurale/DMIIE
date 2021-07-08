@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.pojo.dmiie.R;
 import com.pojo.dmiie.model.CustomerDashBoardDTO;
+import com.pojo.dmiie.model.LedgerMainDTO;
 import com.pojo.dmiie.model.LedgerRequestDTO;
 import com.pojo.dmiie.model.LedgerResponseDTO;
 import com.pojo.dmiie.retrofit.ApiClient;
@@ -86,6 +87,31 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
 
                System.out.println("LedgerSuccess");
                LedgerResponseDTO ledgerResponseDTO=response.body();
+
+
+               ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().size();
+
+               for (int i = 0; i <ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().size() ; i++) {
+
+                   System.out.println(ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().get(i).getLedgerName());
+
+               }
+
+
+
+
+
+
+
+               /*List<LedgerMainDTO> ledgerMainDTOList= (List<LedgerMainDTO>) ledgerResponseDTO.getLedgerDetails();
+
+               for (int i = 0; i <ledgerMainDTOList.size() ; i++) {
+
+                   System.out.println("LedgerCompanyName"+ledgerMainDTOList.get(i).getLedgerCompanyName());
+
+
+               }*/
+
 
 
 
