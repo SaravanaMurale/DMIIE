@@ -2,6 +2,7 @@ package com.pojo.dmiie.salesperson;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,13 +34,16 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
     private RecyclerView customerDashBoardRecyclerView;
     private CustomerDashBoardAdapter customerDashBoardAdapter;
 
-    private List<CustomerDashBoardDTO> customerDashBoardDTOList;
+    private List<LedgerMainDTO> customerDashBoardDTOList;
 
     List<String> ledgerList;
+    int totalLedgerSize;
 
     CustomerSalesPerDashBoardFragment(List<String> ledgerList){
         this.ledgerList=ledgerList;
     }
+
+    List<LedgerMainDTO> ledgerMainDTOList;
 
 
     @Nullable
@@ -59,12 +63,20 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
 
         System.out.println("MyLedgerList"+ledgerList.size());
 
+        totalLedgerSize=ledgerList.size();
+
+
 
         for (int i = 0; i <ledgerList.size() ; i++) {
 
+            System.out.println("MyLedgerCode"+ledgerList.get(i));
+
             getMyLedgerData(ledgerList.get(i));
 
+
+
         }
+
 
 
 
@@ -77,7 +89,7 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
-        final LedgerRequestDTO ledgerRequestDTO=new LedgerRequestDTO("v","y","new","y","01-02-2019","30-03-2019","6001 - ","15422");
+        final LedgerRequestDTO ledgerRequestDTO=new LedgerRequestDTO("v","y","new","y","01-02-2019","30-03-2019","6001 - ",s);
 
        Call<LedgerResponseDTO> call=apiInterface.getMyLedgerDetails(AppConstant.getAuthToken(getActivity()),ledgerRequestDTO);
        call.enqueue(new Callback<LedgerResponseDTO>() {
@@ -87,31 +99,24 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
 
                System.out.println("LedgerSuccess");
                LedgerResponseDTO ledgerResponseDTO=response.body();
+               //ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().size();
 
+               ledgerMainDTOList=ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList();
 
-               ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().size();
 
                for (int i = 0; i <ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().size() ; i++) {
+
 
                    System.out.println(ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().get(i).getLedgerName());
 
                }
 
+               customerDashBoardAdapter.setData(ledgerMainDTOList);
 
 
+               if(totalLedgerSize==ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().size()){
 
-
-
-
-               /*List<LedgerMainDTO> ledgerMainDTOList= (List<LedgerMainDTO>) ledgerResponseDTO.getLedgerDetails();
-
-               for (int i = 0; i <ledgerMainDTOList.size() ; i++) {
-
-                   System.out.println("LedgerCompanyName"+ledgerMainDTOList.get(i).getLedgerCompanyName());
-
-
-               }*/
-
+               }
 
 
 
@@ -127,7 +132,19 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
     }
 
 
-    private void getRecyclerViewData() {
+    @Override
+    public void onCustomerBashBoardClick(LedgerMainDTO customerDashBoardDTO) {
+
+        Intent intent=new Intent(getActivity(),CustomerDashBoardDetailedViewActivity.class);
+        intent.putExtra("LIST",customerDashBoardDTO);
+        startActivity(intent);
+
+
+    }
+
+
+
+    /*private void getRecyclerViewData() {
 
         CustomerDashBoardDTO customerDashBoardDTO=new CustomerDashBoardDTO("Srini","9876543219","07-06-2021","Active","15-06-2021");
         customerDashBoardDTOList.add(customerDashBoardDTO);
@@ -148,18 +165,9 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
         CustomerDashBoardDTO customerDashBoardDTO5=new CustomerDashBoardDTO("Srini","9876543219","07-06-2021","Active","15-06-2021");
         customerDashBoardDTOList.add(customerDashBoardDTO5);
 
-        customerDashBoardAdapter.setData(customerDashBoardDTOList);
+        //customerDashBoardAdapter.setData(customerDashBoardDTOList);
 
 
-    }
+    }*/
 
-    @Override
-    public void onCustomerBashBoardClick(CustomerDashBoardDTO customerDashBoardDTO) {
-
-        Intent intent=new Intent(getActivity(),CustomerDashBoardDetailedViewActivity.class);
-        intent.putExtra("LIST",customerDashBoardDTO);
-        startActivity(intent);
-
-
-    }
 }

@@ -2,7 +2,9 @@ package com.pojo.dmiie.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class LedgerMainDTO {
+import java.io.Serializable;
+
+public class LedgerMainDTO implements Serializable {
 
     @SerializedName("ledger_code")
     private String ledgerCode;

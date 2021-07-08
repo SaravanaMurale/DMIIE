@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.pojo.dmiie.R;
 import com.pojo.dmiie.model.CustomerDashBoardDTO;
+import com.pojo.dmiie.model.LedgerMainDTO;
 
 import java.util.List;
 
@@ -18,21 +19,21 @@ public class CustomerDashBoardAdapter extends RecyclerView.Adapter<CustomerDashB
 
 
     private Context mCtx;
-    List<CustomerDashBoardDTO> customerDashBoardDTOList;
+    List<LedgerMainDTO> customerDashBoardDTOList;
     CustomerDashBoardClickListener customerDashBoardClickListener;
 
 
-    public CustomerDashBoardAdapter(Context mCtx, List<CustomerDashBoardDTO> customerDashBoardDTOList, CustomerDashBoardClickListener customerDashBoardClickListener) {
+    public CustomerDashBoardAdapter(Context mCtx, List<LedgerMainDTO> customerDashBoardDTOList, CustomerDashBoardClickListener customerDashBoardClickListener) {
         this.mCtx = mCtx;
         this.customerDashBoardDTOList = customerDashBoardDTOList;
         this.customerDashBoardClickListener = customerDashBoardClickListener;
     }
 
     public interface CustomerDashBoardClickListener{
-        void onCustomerBashBoardClick(CustomerDashBoardDTO customerDashBoardDTO);
+        void onCustomerBashBoardClick(LedgerMainDTO customerDashBoardDTO);
     }
 
-    public void setData(List<CustomerDashBoardDTO> customerDashBoardDTOList){
+    public void setData(List<LedgerMainDTO> customerDashBoardDTOList){
         this.customerDashBoardDTOList=customerDashBoardDTOList;
         notifyDataSetChanged();
     }
@@ -48,11 +49,11 @@ public class CustomerDashBoardAdapter extends RecyclerView.Adapter<CustomerDashB
     @Override
     public void onBindViewHolder(@NonNull CustomerDashBoardViewHolder holder, int position) {
 
-        holder.custDashName.setText(customerDashBoardDTOList.get(position).getCustCustomerName());
-        holder.custDashMobile.setText(customerDashBoardDTOList.get(position).getCustCustomerMobileNumber());
-        holder.custDashPurchase.setText(customerDashBoardDTOList.get(position).getCustLastPurchaseDate());
-        holder.custDashStatus.setText(customerDashBoardDTOList.get(position).getCustStatus());
-        holder.custDashFollow.setText(customerDashBoardDTOList.get(position).getCustNextFollowup());
+        holder.custDashName.setText(customerDashBoardDTOList.get(position).getLedgerName());
+        //holder.custDashMobile.setText(customerDashBoardDTOList.get(position).getCustCustomerMobileNumber());
+        //holder.custDashPurchase.setText(customerDashBoardDTOList.get(position).getCustLastPurchaseDate());
+        holder.custDashStatus.setText("Active");
+        holder.custDashFollow.setText("");
 
 
     }
@@ -79,7 +80,7 @@ public class CustomerDashBoardAdapter extends RecyclerView.Adapter<CustomerDashB
                 @Override
                 public void onClick(View v) {
 
-                    CustomerDashBoardDTO customerDashBoardDTO =customerDashBoardDTOList.get(getAdapterPosition());
+                    LedgerMainDTO customerDashBoardDTO =customerDashBoardDTOList.get(getAdapterPosition());
 
                     customerDashBoardClickListener.onCustomerBashBoardClick(customerDashBoardDTO);
 
