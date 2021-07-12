@@ -39,11 +39,12 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
     List<String> ledgerList;
     int totalLedgerSize;
 
-    CustomerSalesPerDashBoardFragment(List<String> ledgerList){
-        this.ledgerList=ledgerList;
+    CustomerSalesPerDashBoardFragment(List<String> ledgerList) {
+        this.ledgerList = ledgerList;
     }
 
     List<LedgerMainDTO> ledgerMainDTOList;
+    List<LedgerMainDTO> myLedgerList;
 
 
     @Nullable
@@ -51,34 +52,31 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_home_customer_dashboard, container, false);
 
-        customerDashBoardRecyclerView=(RecyclerView)view.findViewById(R.id.customerDashBoardRecyclerView);
+        customerDashBoardRecyclerView = (RecyclerView) view.findViewById(R.id.customerDashBoardRecyclerView);
         customerDashBoardRecyclerView.setHasFixedSize(true);
         customerDashBoardRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
-        customerDashBoardDTOList=new ArrayList<>();
+        customerDashBoardDTOList = new ArrayList<>();
 
-        customerDashBoardAdapter=new CustomerDashBoardAdapter(getActivity(),customerDashBoardDTOList, CustomerSalesPerDashBoardFragment.this);
+        myLedgerList=new ArrayList<>();
+
+        customerDashBoardAdapter = new CustomerDashBoardAdapter(getActivity(), customerDashBoardDTOList, CustomerSalesPerDashBoardFragment.this);
         customerDashBoardRecyclerView.setAdapter(customerDashBoardAdapter);
 
-        System.out.println("MyLedgerList"+ledgerList.size());
+        System.out.println("MyLedgerList" + ledgerList.size());
 
-        totalLedgerSize=ledgerList.size();
+        totalLedgerSize = ledgerList.size();
 
 
+        for (int i = 0; i < ledgerList.size(); i++) {
 
-        for (int i = 0; i <ledgerList.size() ; i++) {
-
-            System.out.println("MyLedgerCode"+ledgerList.get(i));
+            //System.out.println("MyLedgerCode" + ledgerList.get(i));
 
             getMyLedgerData(ledgerList.get(i));
 
 
-
         }
-
-
-
 
         //getRecyclerViewData();
 
@@ -89,45 +87,46 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
-        final LedgerRequestDTO ledgerRequestDTO=new LedgerRequestDTO("v","y","new","y","01-02-2019","30-03-2019","6001 - ",s);
+        final LedgerRequestDTO ledgerRequestDTO = new LedgerRequestDTO("v", "y", "new", "y", "01-02-2019", "30-03-2019", "6001 - ", s);
 
-       Call<LedgerResponseDTO> call=apiInterface.getMyLedgerDetails(AppConstant.getAuthToken(getActivity()),ledgerRequestDTO);
-       call.enqueue(new Callback<LedgerResponseDTO>() {
-           @Override
-           public void onResponse(Call<LedgerResponseDTO> call, Response<LedgerResponseDTO> response) {
-
-
-               System.out.println("LedgerSuccess");
-               LedgerResponseDTO ledgerResponseDTO=response.body();
-               //ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().size();
-
-               ledgerMainDTOList=ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList();
+        Call<LedgerResponseDTO> call = apiInterface.getMyLedgerDetails(AppConstant.getAuthToken(getActivity()), ledgerRequestDTO);
+        call.enqueue(new Callback<LedgerResponseDTO>() {
+            @Override
+            public void onResponse(Call<LedgerResponseDTO> call, Response<LedgerResponseDTO> response) {
 
 
-               for (int i = 0; i <ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().size() ; i++) {
+                System.out.println("LedgerSuccess");
+                LedgerResponseDTO ledgerResponseDTO = response.body();
+                //ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().size();
+
+                ledgerMainDTOList = ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList();
+
+                LedgerMainDTO ledgerMainDTO =ledgerMainDTOList.get(0);
+
+                myLedgerList.add(ledgerMainDTO);
 
 
-                   System.out.println(ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().get(i).getLedgerName());
-
-               }
-
-               customerDashBoardAdapter.setData(ledgerMainDTOList);
+                //copyOfLedgerMainDTOList.add(ledgerMainDTOList);
 
 
-               if(totalLedgerSize==ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().size()){
+              /* for (int i = 0; i <ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().size() ; i++) {
 
-               }
+                   System.out.println("ListOfLEdgerNames"+ledgerResponseDTO.getLedgerDetails().getLedgerMainDTOList().get(i).getLedgerName());
+               }*/
 
+                //System.out.println("totalLedgerSize" + totalLedgerSize);
 
+                if (totalLedgerSize == myLedgerList.size()) {
 
+                    customerDashBoardAdapter.setData(myLedgerList);
+                }
+            }
 
-           }
+            @Override
+            public void onFailure(Call<LedgerResponseDTO> call, Throwable t) {
 
-           @Override
-           public void onFailure(Call<LedgerResponseDTO> call, Throwable t) {
-
-           }
-       });
+            }
+        });
 
     }
 
@@ -135,8 +134,8 @@ public class CustomerSalesPerDashBoardFragment extends Fragment implements Custo
     @Override
     public void onCustomerBashBoardClick(LedgerMainDTO customerDashBoardDTO) {
 
-        Intent intent=new Intent(getActivity(),CustomerDashBoardDetailedViewActivity.class);
-        intent.putExtra("LIST",customerDashBoardDTO);
+        Intent intent = new Intent(getActivity(), CustomerDashBoardDetailedViewActivity.class);
+        intent.putExtra("LIST", customerDashBoardDTO);
         startActivity(intent);
 
 
