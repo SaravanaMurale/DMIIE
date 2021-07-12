@@ -76,7 +76,9 @@ public class SalesPersonAssignActivity extends AppCompatActivity {
 
         LedgerSearchDTO ledgerSearchDTO = new LedgerSearchDTO("ledger_master", getLedgerName);
 
-        Call<SearchResponseDTO> call = apiInterface.getSearchCompanyList(PreferenceUtil.getValueString(SalesPersonAssignActivity.this,PreferenceUtil.AUTH_TOKEN),ledgerSearchDTO);
+        String token=PreferenceUtil.getValueString(SalesPersonAssignActivity.this,PreferenceUtil.AUTH_TOKEN);
+
+        Call<SearchResponseDTO> call = apiInterface.getSearchCompanyList(token,ledgerSearchDTO);
         call.enqueue(new Callback<SearchResponseDTO>() {
             @Override
             public void onResponse(Call<SearchResponseDTO> call, Response<SearchResponseDTO> response) {
