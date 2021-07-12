@@ -27,7 +27,7 @@ public class PagerAdapterSales extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new HomeSalesPerDashBoardFragment();
+                return new HomeSalesPerDashBoardFragment(ledgerList);
             case 1:
                 return new CustomerSalesPerDashBoardFragment(ledgerList);
 

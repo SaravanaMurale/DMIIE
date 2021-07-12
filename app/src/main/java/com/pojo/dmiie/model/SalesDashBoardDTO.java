@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class SalesDashBoardDTO implements Serializable {
 
-    @SerializedName("")
+    @SerializedName("ledger_name")
     private String saleCustName;
     @SerializedName("")
     private String saleCustMobileNumber;

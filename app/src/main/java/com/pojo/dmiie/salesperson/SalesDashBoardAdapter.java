@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pojo.dmiie.R;
+import com.pojo.dmiie.model.LedgerMainDTO;
 import com.pojo.dmiie.model.SalesDashBoardDTO;
 
 import java.util.List;
@@ -18,11 +19,11 @@ import java.util.List;
 public class SalesDashBoardAdapter extends RecyclerView.Adapter<SalesDashBoardAdapter.SalesDashBoardViewHolder> {
 
     Context context;
-    List<SalesDashBoardDTO> salesDashBoardDTOList;
+    List<LedgerMainDTO> salesDashBoardDTOList;
     SalesDashBoardClickListener salesDashBoardClickListener;
 
 
-    public SalesDashBoardAdapter(Context context, List<SalesDashBoardDTO> salesDashBoardDTOList, SalesDashBoardClickListener salesDashBoardClickListener) {
+    public SalesDashBoardAdapter(Context context,  List<LedgerMainDTO> salesDashBoardDTOList, SalesDashBoardClickListener salesDashBoardClickListener) {
         this.context = context;
         this.salesDashBoardDTOList = salesDashBoardDTOList;
         this.salesDashBoardClickListener = salesDashBoardClickListener;
@@ -31,11 +32,11 @@ public class SalesDashBoardAdapter extends RecyclerView.Adapter<SalesDashBoardAd
 
     public interface SalesDashBoardClickListener{
 
-        public void onSaleClickListener(SalesDashBoardDTO salesDashBoardDTO);
+        public void onSaleClickListener(LedgerMainDTO salesDashBoardDTO);
 
     }
 
-    public void setData(List<SalesDashBoardDTO> salesDashBoardDTOList){
+    public void setData( List<LedgerMainDTO> salesDashBoardDTOList){
         this.salesDashBoardDTOList=salesDashBoardDTOList;
         notifyDataSetChanged();
     }
@@ -52,11 +53,11 @@ public class SalesDashBoardAdapter extends RecyclerView.Adapter<SalesDashBoardAd
     @Override
     public void onBindViewHolder(@NonNull SalesDashBoardViewHolder holder, int position) {
 
-        holder.salesCustomerName.setText(salesDashBoardDTOList.get(position).getSaleCustName());
-        holder.salesMobileNumber.setText(salesDashBoardDTOList.get(position).getSaleCustMobileNumber());
-        holder.salesCustomerStatus.setText(salesDashBoardDTOList.get(position).getSalCustStatus());
+        holder.salesCustomerName.setText(salesDashBoardDTOList.get(position).getLedgerName());
+        holder.salesMobileNumber.setText(salesDashBoardDTOList.get(position).getLedgerName());
+        /*holder.salesCustomerStatus.setText(salesDashBoardDTOList.get(position).getSalCustStatus());
         holder.salesSample.setText(salesDashBoardDTOList.get(position).getSaleCustNeedSample());
-        holder.salesPriceList.setText(salesDashBoardDTOList.get(position).getSaleCustNeedPriceList());
+        holder.salesPriceList.setText(salesDashBoardDTOList.get(position).getSaleCustNeedPriceList());*/
 
 
     }
@@ -82,7 +83,7 @@ public class SalesDashBoardAdapter extends RecyclerView.Adapter<SalesDashBoardAd
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    SalesDashBoardDTO salesDashBoardDTO=salesDashBoardDTOList.get(getAdapterPosition());
+                    LedgerMainDTO salesDashBoardDTO=salesDashBoardDTOList.get(getAdapterPosition());
 
                     salesDashBoardClickListener.onSaleClickListener(salesDashBoardDTO);
 
