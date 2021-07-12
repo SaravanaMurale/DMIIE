@@ -3,6 +3,7 @@ package com.pojo.dmiie.retrofit;
 
 import com.pojo.dmiie.model.LedgerRequestDTO;
 import com.pojo.dmiie.model.LedgerResponseDTO;
+import com.pojo.dmiie.model.LedgerSearchDTO;
 import com.pojo.dmiie.model.LoginRequestDTO;
 import com.pojo.dmiie.model.LoginResponseDTO;
 import com.pojo.dmiie.model.SearchResponseDTO;
@@ -29,7 +30,9 @@ public interface ApiInterface {
     Call<LedgerResponseDTO> getMyLedgerDetails(@Header("token") String token,@Body LedgerRequestDTO ledgerRequestDTO);
 
 
-    Call<SearchResponseDTO> getSearchCompanyList();
+    @Headers({"Content-Type:application/json"})
+    @POST("api/masterlist/getledgerlist")
+    Call<SearchResponseDTO> getSearchCompanyList(@Header("token") String token,@Body LedgerSearchDTO ledgerSearchDTO);
 
 
 }
