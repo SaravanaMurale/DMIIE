@@ -5,6 +5,7 @@ import com.pojo.dmiie.model.LedgerRequestDTO;
 import com.pojo.dmiie.model.LedgerResponseDTO;
 import com.pojo.dmiie.model.LoginRequestDTO;
 import com.pojo.dmiie.model.LoginResponseDTO;
+import com.pojo.dmiie.model.SearchResponseDTO;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -26,6 +27,9 @@ public interface ApiInterface {
     @Headers({"Content-Type:application/json"})
     @POST("api/report/ledger/details")
     Call<LedgerResponseDTO> getMyLedgerDetails(@Header("token") String token,@Body LedgerRequestDTO ledgerRequestDTO);
+
+
+    Call<SearchResponseDTO> getSearchCompanyList();
 
 
 }
