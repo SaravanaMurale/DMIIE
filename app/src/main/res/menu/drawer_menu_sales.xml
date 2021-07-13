@@ -8,11 +8,15 @@
         <item
             android:id="@+id/nav_message_sales"
             android:icon="@drawable/ic_baseline_phone_android_24"
-            android:title="Sales DashBoard" />
+            android:title="Sales DashBoard"
+            android:visible="false"
+            />
         <item
             android:id="@+id/nav_chat_sales"
             android:icon="@drawable/ic_baseline_phone_android_24"
-            android:title="Report" />
+            android:title="Report"
+            android:visible="false"
+            />
         <item
             android:id="@+id/nav_profile_sales"
             android:icon="@drawable/ic_baseline_phone_android_24"
