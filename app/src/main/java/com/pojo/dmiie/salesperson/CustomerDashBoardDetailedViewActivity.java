@@ -37,10 +37,10 @@ public class CustomerDashBoardDetailedViewActivity extends AppCompatActivity {
 
         custBtnDetailView=(Button)findViewById(R.id.custBtnDetailView);
 
-        custCust_user_name_detailView.setText(customerDashBoardDTO.getCustCustomerName());
-        custCust_user_mobile_detailView.setText(customerDashBoardDTO.getCustCustomerMobileNumber());
+        custCust_user_name_detailView.setText("10000-SIRIPHA");
+        custCust_user_mobile_detailView.setText("");
 
-        custCust_last_purchase_detailView.setText(customerDashBoardDTO.getCustLastPurchaseDate());
+        custCust_last_purchase_detailView.setText("");
 
 
 

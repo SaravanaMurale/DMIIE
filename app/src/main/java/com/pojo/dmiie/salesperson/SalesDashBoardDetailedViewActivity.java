@@ -114,9 +114,9 @@ public class SalesDashBoardDetailedViewActivity extends AppCompatActivity implem
 
 
 
-        salesCustName.setText(salesDashBoardDTO.getSaleCustName());
-        salesCustMobileNum.setText(salesDashBoardDTO.getSaleCustMobileNumber());
-        salesCustBusOwnNum.setText(salesDashBoardDTO.getSaleCustBusOwnerName());
+        salesCustName.setText("10000-SIRIPHA");
+        salesCustMobileNum.setText("");
+        salesCustBusOwnNum.setText("");
 
 
 
