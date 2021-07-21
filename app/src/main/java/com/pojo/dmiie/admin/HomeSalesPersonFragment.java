@@ -14,9 +14,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.pojo.dmiie.R;
 import com.pojo.dmiie.model.AdminDashBoardCountDTO;
+import com.pojo.dmiie.model.AdminDashBoardResponseDTO;
+import com.pojo.dmiie.retrofit.ApiClient;
+import com.pojo.dmiie.retrofit.ApiInterface;
+import com.pojo.dmiie.util.PreferenceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeSalesPersonFragment extends Fragment implements AdminDashBoardAdapter.SalesPerAssignListener {
 
@@ -40,43 +48,43 @@ public class HomeSalesPersonFragment extends Fragment implements AdminDashBoardA
         adminDashBoardAdapter=new AdminDashBoardAdapter(getActivity(),adminDashBoardCountDTOList,HomeSalesPersonFragment.this);
         recyclerViewAdminDashboard.setAdapter(adminDashBoardAdapter);
 
-        getDashBoardCount();
+        //getDashBoardCount();
+
+        getAllSalespersonList();
+
 
         return view;
     }
 
-    private void getDashBoardCount() {
+    private void getAllSalespersonList() {
 
-        AdminDashBoardCountDTO adminDashBoardCountDTO=new AdminDashBoardCountDTO("Saravana",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO1=new AdminDashBoardCountDTO("Murali",50,0,5,2);
-        AdminDashBoardCountDTO adminDashBoardCountDTO2=new AdminDashBoardCountDTO("Suresh",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO3=new AdminDashBoardCountDTO("Ramesh",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO4=new AdminDashBoardCountDTO("Saravana",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO5=new AdminDashBoardCountDTO("Murali",50,0,5,2);
-        AdminDashBoardCountDTO adminDashBoardCountDTO6=new AdminDashBoardCountDTO("Suresh",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO7=new AdminDashBoardCountDTO("Ramesh",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO8=new AdminDashBoardCountDTO("Saravana",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO9=new AdminDashBoardCountDTO("Murali",50,0,5,2);
-        AdminDashBoardCountDTO adminDashBoardCountDTO10=new AdminDashBoardCountDTO("Suresh",50,5,2,6);
-        AdminDashBoardCountDTO adminDashBoardCountDTO11=new AdminDashBoardCountDTO("Ramesh",50,5,2,6);
+        ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO1);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO2);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO3);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO4);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO5);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO6);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO7);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO8);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO9);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO10);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO11);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO5);
-        adminDashBoardCountDTOList.add(adminDashBoardCountDTO6);
+        String token=PreferenceUtil.getValueString(getActivity(),PreferenceUtil.AUTH_TOKEN);
 
-        adminDashBoardAdapter.setData(adminDashBoardCountDTOList);
+        Call<AdminDashBoardResponseDTO> call=apiInterface.getAllSalesPersonList(token);
+        call.enqueue(new Callback<AdminDashBoardResponseDTO>() {
+            @Override
+            public void onResponse(Call<AdminDashBoardResponseDTO> call, Response<AdminDashBoardResponseDTO> response) {
+
+
+                AdminDashBoardResponseDTO adminDashBoardResponseDTO  =response.body();
+
+                System.out.println("ResponsesStatus"+adminDashBoardResponseDTO.isStatus());
+
+                adminDashBoardCountDTOList= adminDashBoardResponseDTO.getAdminDashBoardCountDTOList();
+
+                adminDashBoardAdapter.setData(adminDashBoardCountDTOList);
+
+
+            }
+
+            @Override
+            public void onFailure(Call<AdminDashBoardResponseDTO> call, Throwable t) {
+
+            }
+        });
+
 
     }
 
@@ -87,9 +95,6 @@ public class HomeSalesPersonFragment extends Fragment implements AdminDashBoardA
         Intent intent=new Intent(getActivity(),SalesPersonAssignActivity.class);
         intent.putExtra("LIST",adminDashBoardCountDTO);
         startActivity(intent);
-
-
-
 
     }
 }

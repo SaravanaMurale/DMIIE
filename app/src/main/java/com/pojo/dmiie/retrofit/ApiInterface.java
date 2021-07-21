@@ -1,6 +1,8 @@
 package com.pojo.dmiie.retrofit;
 
 
+import com.pojo.dmiie.model.AdminDashBoardCountDTO;
+import com.pojo.dmiie.model.AdminDashBoardResponseDTO;
 import com.pojo.dmiie.model.LedgerRequestDTO;
 import com.pojo.dmiie.model.LedgerResponseDTO;
 import com.pojo.dmiie.model.LedgerSearchDTO;
@@ -30,9 +32,16 @@ public interface ApiInterface {
     Call<LedgerResponseDTO> getMyLedgerDetails(@Header("token") String token,@Body LedgerRequestDTO ledgerRequestDTO);
 
 
-    @Headers({"Content-Type:application/json"})
+    //@Headers({"Content-Type:application/json"})
     @POST("api/masterlist/getledgerlist")
     Call<SearchResponseDTO> getSearchCompanyList(@Header("token") String token,@Body LedgerSearchDTO ledgerSearchDTO);
+
+
+    @Headers({"Content-Type:text/plain"})
+    @POST("api/followup/getSalemanList")
+    Call<AdminDashBoardResponseDTO>getAllSalesPersonList(@Header("token") String token);
+
+
 
 
 }

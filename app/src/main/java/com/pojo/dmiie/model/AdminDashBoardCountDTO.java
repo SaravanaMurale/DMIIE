@@ -1,29 +1,62 @@
 package com.pojo.dmiie.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class AdminDashBoardCountDTO implements Serializable {
 
-    String salesPersonName;
+    @SerializedName("salesman_name")
+    String spName;
+    @SerializedName("salesman_id")
+    String spId;
+    @SerializedName("assigned_company")
+    String spassignedCompany;
+    @SerializedName("company_code")
+    String spCompanyCode;
+
     int taotalcustomer;
     int totalAssigned;
     int followup;
     int closed;
 
-    public AdminDashBoardCountDTO(String salesPersonName, int taotalcustomer, int totalAssigned, int followup, int closed) {
-        this.salesPersonName = salesPersonName;
-        this.taotalcustomer = taotalcustomer;
-        this.totalAssigned = totalAssigned;
-        this.followup = followup;
-        this.closed = closed;
+    public AdminDashBoardCountDTO(String spName, String spId, String spassignedCompany, String spCompanyCode) {
+        this.spName = spName;
+        this.spId = spId;
+        this.spassignedCompany = spassignedCompany;
+        this.spCompanyCode = spCompanyCode;
     }
 
-    public String getSalesPersonName() {
-        return salesPersonName;
+    public String getSpName() {
+        return spName;
     }
 
-    public void setSalesPersonName(String salesPersonName) {
-        this.salesPersonName = salesPersonName;
+    public void setSpName(String spName) {
+        this.spName = spName;
+    }
+
+    public String getSpId() {
+        return spId;
+    }
+
+    public void setSpId(String spId) {
+        this.spId = spId;
+    }
+
+    public String getSpassignedCompany() {
+        return spassignedCompany;
+    }
+
+    public void setSpassignedCompany(String spassignedCompany) {
+        this.spassignedCompany = spassignedCompany;
+    }
+
+    public String getSpCompanyCode() {
+        return spCompanyCode;
+    }
+
+    public void setSpCompanyCode(String spCompanyCode) {
+        this.spCompanyCode = spCompanyCode;
     }
 
     public int getTaotalcustomer() {

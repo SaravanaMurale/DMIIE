@@ -51,7 +51,7 @@ public class AdminDashBoardAdapter extends RecyclerView.Adapter<AdminDashBoardAd
     public void onBindViewHolder(@NonNull AdminDashBoardViewHolder holder, int position) {
 
 
-        holder.admin_salesper_name.setText(adminDashBoardCountDTOList.get(position).getSalesPersonName());
+        holder.admin_salesper_name.setText(adminDashBoardCountDTOList.get(position).getSpName());
         holder.totalCustomer.setText(""+adminDashBoardCountDTOList.get(position).getTaotalcustomer());
         holder.totalAssigned.setText(""+adminDashBoardCountDTOList.get(position).getTotalAssigned());
         holder.followUp.setText(""+adminDashBoardCountDTOList.get(position).getFollowup());
