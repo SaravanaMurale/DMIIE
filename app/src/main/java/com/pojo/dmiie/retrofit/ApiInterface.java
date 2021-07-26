@@ -37,7 +37,7 @@ public interface ApiInterface {
     Call<SearchResponseDTO> getSearchCompanyList(@Header("token") String token,@Body LedgerSearchDTO ledgerSearchDTO);
 
 
-    @Headers({"Content-Type:text/plain;charset=utf-8"})
+    @Headers({"Content-Type:application/json"})
     @POST("api/followup/getSalemanList")
     Call<AdminDashBoardResponseDTO>getAllSalesPersonList(@Header("token") String token);
 

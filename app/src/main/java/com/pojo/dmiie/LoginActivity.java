@@ -17,6 +17,7 @@ import com.pojo.dmiie.salesperson.SalesDrawerActivity;
 import com.pojo.dmiie.util.AppConstant;
 import com.pojo.dmiie.util.PreferenceUtil;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         LoginRequestDTO loginRequestDTO = new LoginRequestDTO(userName, password, AppConstant.DEVICE);
 
         Call<LoginResponseDTO> call = apiInterface.doLoginAuthentication(loginRequestDTO);
+
 
         call.enqueue(new Callback<LoginResponseDTO>() {
             @Override
