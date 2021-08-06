@@ -20,8 +20,12 @@ import com.pojo.dmiie.retrofit.ApiInterface;
 import com.pojo.dmiie.util.PreferenceUtil;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -59,24 +63,26 @@ public class HomeSalesPersonFragment extends Fragment implements AdminDashBoardA
     private void getAllSalespersonList() {
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
-
         String token=PreferenceUtil.getValueString(getActivity(),PreferenceUtil.AUTH_TOKEN);
 
-        Call<AdminDashBoardResponseDTO> call=apiInterface.getAllSalesPersonList(token);
+        Map<String, String> map = new HashMap<>();
+        map.put("Content-Type", "application/json");
+        map.put("token",token);
+
+        String text="";
+        RequestBody body = RequestBody.create(MediaType.parse("text/plain"), text);
+
+        Call<AdminDashBoardResponseDTO> call=apiInterface.getAllSalesPersonList(map, body);
         call.enqueue(new Callback<AdminDashBoardResponseDTO>() {
             @Override
             public void onResponse(Call<AdminDashBoardResponseDTO> call, Response<AdminDashBoardResponseDTO> response) {
 
-
                 AdminDashBoardResponseDTO adminDashBoardResponseDTO  =response.body();
 
                 System.out.println("ResponsesStatusOfSalesPerson"+adminDashBoardResponseDTO.isStatus());
-
                 //adminDashBoardCountDTOList= adminDashBoardResponseDTO.getAdminDashBoardCountDTOList();
 
                 adminDashBoardAdapter.setData(adminDashBoardCountDTOList);
-
-
             }
 
             @Override
@@ -86,10 +92,7 @@ public class HomeSalesPersonFragment extends Fragment implements AdminDashBoardA
 
             }
         });
-
-
     }
-
 
     @Override
     public void onSalesPersonAssignClick(AdminDashBoardCountDTO adminDashBoardCountDTO) {

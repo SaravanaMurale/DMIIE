@@ -6,10 +6,10 @@ import java.io.Serializable;
 
 public class AdminDashBoardCountDTO implements Serializable {
 
-    @SerializedName("salesman_name")
-    String spName;
     @SerializedName("salesman_id")
     String spId;
+    @SerializedName("salesman_name")
+    String spName;
     @SerializedName("assigned_company")
     String spassignedCompany;
     @SerializedName("company_code")
