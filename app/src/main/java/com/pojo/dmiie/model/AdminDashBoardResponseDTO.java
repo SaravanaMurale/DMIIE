@@ -7,7 +7,12 @@ import java.util.List;
 public class AdminDashBoardResponseDTO {
 
     @SerializedName("status")
-    boolean status;
+    public boolean status;
+
+
+    @SerializedName("data")
+    public List<AdminDashBoardCountDTO> adminDashBoardCountDTOList;
+
 
     public AdminDashBoardResponseDTO(boolean status) {
         this.status = status;
@@ -20,10 +25,6 @@ public class AdminDashBoardResponseDTO {
     public void setStatus(boolean status) {
         this.status = status;
     }
-
-    @SerializedName("data")
-    List<AdminDashBoardCountDTO> adminDashBoardCountDTOList;
-
 
 
     public AdminDashBoardResponseDTO(List<AdminDashBoardCountDTO> adminDashBoardCountDTOList) {
