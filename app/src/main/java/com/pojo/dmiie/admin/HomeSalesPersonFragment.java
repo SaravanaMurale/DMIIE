@@ -66,13 +66,15 @@ public class HomeSalesPersonFragment extends Fragment implements AdminDashBoardA
         String token=PreferenceUtil.getValueString(getActivity(),PreferenceUtil.AUTH_TOKEN);
 
         Map<String, String> map = new HashMap<>();
-        map.put("Content-Type", "application/json");
+       /* map.put("Content-Type", "application/json");
+        map.put("Accept","application/json");
+        map.put("Accept-Charset", "utf-8");*/
         map.put("token",token);
 
         String text="";
         RequestBody body = RequestBody.create(MediaType.parse("text/plain"), text);
 
-        Call<AdminDashBoardResponseDTO> call=apiInterface.getAllSalesPersonList(map, body);
+        Call<AdminDashBoardResponseDTO> call=apiInterface.getAllSalesPersonList(map,body);
         call.enqueue(new Callback<AdminDashBoardResponseDTO>() {
             @Override
             public void onResponse(Call<AdminDashBoardResponseDTO> call, Response<AdminDashBoardResponseDTO> response) {

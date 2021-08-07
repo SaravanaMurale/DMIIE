@@ -42,6 +42,6 @@ public interface ApiInterface {
 
 
     @POST("api/followup/getSalemanList")
-    Call<AdminDashBoardResponseDTO> getAllSalesPersonList(@HeaderMap Map<String, String> headers, @Body RequestBody requestBody);
+    Call<AdminDashBoardResponseDTO> getAllSalesPersonList(@HeaderMap Map<String, String> headers,@Body RequestBody requestBody);
 
 }
