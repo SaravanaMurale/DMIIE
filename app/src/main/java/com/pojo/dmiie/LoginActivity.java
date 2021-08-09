@@ -137,4 +137,5 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btnLogin);
 
     }
+
 }
