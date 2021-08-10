@@ -84,9 +84,6 @@ public class AdminDashBoardAdapter extends RecyclerView.Adapter<AdminDashBoardAd
                     AdminDashBoardCountDTO adminDashBoardCountDTO=adminDashBoardCountDTOList.get(getAdapterPosition());
                     salesPerAssignListener.onSalesPersonAssignClick(adminDashBoardCountDTO);
 
-
-
-
                 }
             });
 

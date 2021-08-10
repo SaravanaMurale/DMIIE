@@ -100,8 +100,6 @@ public class AdminReportDetailedViewActivity extends AppCompatActivity implement
         assignManualVistSpinner.setAdapter(assignManualVisitReq);
         assignManualVistSpinner.setOnItemSelectedListener(this);
 
-
-
     }
 
     @Override
