@@ -27,6 +27,7 @@ public class AdminDashBoardCountDTO implements Serializable {
         this.spCompanyCode = spCompanyCode;
     }
 
+
     public String getSpName() {
         return spName;
     }

@@ -38,4 +38,5 @@ public class AdminDashBoardResponseDTO {
     public void setAdminDashBoardCountDTOList(List<AdminDashBoardCountDTO> adminDashBoardCountDTOList) {
         this.adminDashBoardCountDTOList = adminDashBoardCountDTOList;
     }
+
 }

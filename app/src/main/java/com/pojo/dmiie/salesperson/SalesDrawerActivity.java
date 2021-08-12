@@ -107,9 +107,6 @@ public class SalesDrawerActivity extends AppCompatActivity implements Navigation
             }
         });
 
-
-
-
     }
 
 
