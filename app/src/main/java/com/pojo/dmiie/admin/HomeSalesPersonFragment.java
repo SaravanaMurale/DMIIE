@@ -82,7 +82,7 @@ public class HomeSalesPersonFragment extends Fragment implements AdminDashBoardA
                 AdminDashBoardResponseDTO adminDashBoardResponseDTO  =response.body();
 
                 System.out.println("ResponsesStatusOfSalesPerson"+adminDashBoardResponseDTO.isStatus());
-                //adminDashBoardCountDTOList= adminDashBoardResponseDTO.getAdminDashBoardCountDTOList();
+                adminDashBoardCountDTOList= adminDashBoardResponseDTO.getAdminDashBoardCountDTOList();
 
                 adminDashBoardAdapter.setData(adminDashBoardCountDTOList);
             }
