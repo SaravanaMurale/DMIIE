@@ -9,8 +9,19 @@ public class AdminDashBoardResponseDTO {
     @SerializedName("status")
     public boolean status;
 
+    public AdminDashBoardResponseDTO(boolean status) {
+        this.status = status;
+    }
 
-    @SerializedName("data")
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    /* @SerializedName("data")
     public List<AdminDashBoardCountDTO> adminDashBoardCountDTOList;
 
 
@@ -37,6 +48,6 @@ public class AdminDashBoardResponseDTO {
 
     public void setAdminDashBoardCountDTOList(List<AdminDashBoardCountDTO> adminDashBoardCountDTOList) {
         this.adminDashBoardCountDTOList = adminDashBoardCountDTOList;
-    }
+    }*/
 
 }

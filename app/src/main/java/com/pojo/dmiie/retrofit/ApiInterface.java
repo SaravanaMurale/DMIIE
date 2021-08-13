@@ -41,7 +41,8 @@ public interface ApiInterface {
     Call<LedgerResponseDTO> getMyLedgerDetails(@Header("token") String token,@Body LedgerRequestDTO ledgerRequestDTO);
 
 
+    @Headers({"Content-Type:application/json"})
     @POST("api/followup/getSalemanList")
-    Call<AdminDashBoardResponseDTO> getAllSalesPersonList(@HeaderMap Map<String, String> headers,@Body RequestBody requestBody);
+    Call<AdminDashBoardResponseDTO> getAllSalesPersonList(@Header("token") String token);
 
 }

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:id="@+id/drawer_layout_admin"
-
     tools:context=".admin.AdminDrawerActivity">
 
     <LinearLayout
@@ -53,8 +52,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </androidx.viewpager.widget.ViewPager>
-
-
 
 
         <FrameLayout

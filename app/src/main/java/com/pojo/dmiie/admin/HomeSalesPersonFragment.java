@@ -74,7 +74,7 @@ public class HomeSalesPersonFragment extends Fragment implements AdminDashBoardA
         String text="";
         RequestBody body = RequestBody.create(MediaType.parse("text/plain"), text);
 
-        Call<AdminDashBoardResponseDTO> call=apiInterface.getAllSalesPersonList(map,body);
+        Call<AdminDashBoardResponseDTO> call=apiInterface.getAllSalesPersonList(token);
         call.enqueue(new Callback<AdminDashBoardResponseDTO>() {
             @Override
             public void onResponse(Call<AdminDashBoardResponseDTO> call, Response<AdminDashBoardResponseDTO> response) {
